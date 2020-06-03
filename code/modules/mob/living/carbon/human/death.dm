@@ -62,11 +62,24 @@
 	if(SSticker && SSticker.current_state == GAME_STATE_PLAYING) //game has started, to ignore the map placed corpses.
 		GLOB.round_statistics.total_human_deaths++
 		SSblackbox.record_feedback("tally", "round_statistics", 1, "total_human_deaths")
+		if(SSticker.mode.config_tag == "TDM")
+			TDM_ticket_death()
 
 	GLOB.dead_human_list += src
 	GLOB.alive_human_list -= src
 
 	return ..()
+
+/mob/living/carbon/human/proc/TDM_ticket_death()
+	var/datum/game_mode/team_death_match/this_game_mode = SSticker.mode
+	switch(citizenship)
+		if("NATSF")
+			this_game_mode.a_team_tickets -= 1
+			this_game_mode.check_finished()
+		if("KOSMNAZ")
+			this_game_mode.b_team_tickets -= 1
+			this_game_mode.check_finished()
+
 
 /mob/living/carbon/human/proc/makeSkeleton()
 	if(f_style)

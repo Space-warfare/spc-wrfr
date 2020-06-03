@@ -94,7 +94,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/moth_wings = "Plain"
 
 	//Lore
-	var/citizenship = "TerraGov"
+	var/citizenship = "DECLARE YOUR ALLIGENCE"
 	var/religion = "None"
 	var/nanotrasen_relation = "Neutral"
 	var/flavor_text = ""
@@ -208,6 +208,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	dat += "<a href='?_src_=prefs;preference=randomize_name'>(R)</a>"
 	dat += "<br>"
 	dat += "Always Pick Random Name: <a href='?_src_=prefs;preference=random_name'>[random_name ? "Yes" : "No"]</a>"
+	dat += "<br><b>Citizenship</b>: <a href = '?_src_=prefs;preference=citizenship'>[citizenship]</a><br/>"
 	dat += "<br><br>"
 
 

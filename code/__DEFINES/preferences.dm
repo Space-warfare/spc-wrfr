@@ -64,9 +64,8 @@
 #define TOGGLES_GAMEPLAY_DEFAULT (RADIAL_MEDICAL)
 
 #define CITIZENSHIP_CHOICES list(\
-	"TerraGov",\
-	"Limited Service (Colony)",\
-	"Green Card (Foreign)"\
+	"NATSF",\
+	"KOSMNAZ"\
 	)
 
 
