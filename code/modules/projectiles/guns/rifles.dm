@@ -729,9 +729,9 @@
 /obj/item/weapon/gun/rifle/famas
 	name = "\improper FAMAS assault rifle"
 	desc = "This FAMAS rifle is an update to the original design, modifed extensively to modernize it and to make it spaceworthy. Uses 6.5x40mm caseless."
-	icon = 'icons/Marine/gun64.dmi
+	icon = 'icons/Marine/gun64.dmi'
 	icon_state = "famas"
-	item_state = "m16"
+	item_state = "famas"
 	muzzleflash_iconstate = "muzzle_flash_medium"
 	caliber = "6.5x40mm caseless" //codex
 	max_shells = 30 //codex
@@ -763,9 +763,9 @@
 
 /obj/item/weapon/gun/rifle/famas/ak40vm
 	name = "\improper AK-40VM assault rifle"
-	desc = "A tried and true design, this AK has been modified extensively from the original design to be spaceworthy. Fires 9x30mm caseless."'
+	desc = "A tried and true design, this AK has been modified extensively from the original design to be spaceworthy. Fires 9x30mm caseless."
 	icon_state = "ak40"
-	item_state = "ak47"
+	item_state = "ak40"
 	caliber = "9x30mm caseless" //codex
 	muzzleflash_iconstate = "muzzle_flash_medium"
 	max_shells = 30 //codex
