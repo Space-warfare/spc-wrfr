@@ -31,7 +31,7 @@
 	name = "PLSS"
 	desc = "A bulky spacesuit backpack with high-powered maneuvering thrusters."
 	icon_state = "PLSS"
-	item_state =  "PLSS"
+	item_state =  "PLSS" //bit hacky but this has to be the name of the icon_state for the multiple factions.
 	actions_types = list(/datum/action/item_action/toggle)
 
 /obj/item/tank/jetpack/oxygen/combat/attack_self(mob/user)
@@ -42,10 +42,10 @@
 		return
 	if(datum_components)
 		datum_components = null
-		icon_state = "PLSS"
+		icon_state = "[item_state]"
 	else
 		AddComponent(/datum/component/jetpack_dash)
-		icon_state = "PLSS_a"
+		icon_state = "[item_state]_a"
 
 	playsound(src,'sound/items/flashlight.ogg', 15, 1)
 	return TRUE
