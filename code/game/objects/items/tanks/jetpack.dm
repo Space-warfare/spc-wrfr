@@ -32,7 +32,31 @@
 	desc = "A bulky spacesuit backpack with high-powered maneuvering thrusters."
 	icon_state = "PLSS"
 	item_state =  "PLSS"
+	actions_types = list(/datum/action/item_action/toggle)
 
 /obj/item/tank/jetpack/oxygen/combat/Initialize()
 	. = ..()
 	AddComponent(/datum/component/jetpack_dash)
+
+/obj/item/tank/jetpack/oxygen/combat/attack_self(mob/user)
+	if(!isturf(user.loc))
+		to_chat(user, "<span class='warning'>You cannot turn the jets on while in [user.loc].</span>")
+		return
+	if(!ishuman(user))
+		return
+	if(datum_components)
+		datum_components = null
+		icon_state = "PLSS"
+	else
+		AddComponent(/datum/component/jetpack_dash)
+		icon_state = "PLSS_a"
+	
+	playsound(src,'sound/items/flashlight.ogg', 15, 1)
+	return TRUE
+
+/obj/item/tank/jetpack/oxygen/combat/item_action_slot_check(mob/user, slot)
+	if(!ishuman(user))
+		return FALSE
+	if(slot != SLOT_BACK)
+		return FALSE
+	return TRUE //only give action button when armor is worn.
