@@ -34,10 +34,6 @@
 	item_state =  "PLSS"
 	actions_types = list(/datum/action/item_action/toggle)
 
-/obj/item/tank/jetpack/oxygen/combat/Initialize()
-	. = ..()
-	AddComponent(/datum/component/jetpack_dash)
-
 /obj/item/tank/jetpack/oxygen/combat/attack_self(mob/user)
 	if(!isturf(user.loc))
 		to_chat(user, "<span class='warning'>You cannot turn the jets on while in [user.loc].</span>")
@@ -50,7 +46,7 @@
 	else
 		AddComponent(/datum/component/jetpack_dash)
 		icon_state = "PLSS_a"
-	
+
 	playsound(src,'sound/items/flashlight.ogg', 15, 1)
 	return TRUE
 
