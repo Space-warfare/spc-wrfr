@@ -5,7 +5,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	item_state = "jetpack"
 	distribute_pressure = ONE_ATMOSPHERE*O2STANDARD
-	
+
 /obj/item/tank/jetpack/void
 	name = "Void Jetpack (Oxygen)"
 	desc = "It works well in a void."
@@ -56,3 +56,10 @@
 	if(slot != SLOT_BACK)
 		return FALSE
 	return TRUE //only give action button when armor is worn.
+
+/obj/item/tank/jetpack/oxygen/combat/natsa
+	name = "NATSF PLSS"
+	desc = "A bulky spacesuit backpack with high-powered maneuvering thrusters. Has NATSA markings"
+	icon_state = "NPLSS"
+	item_state =  "NPLSS"
+	
