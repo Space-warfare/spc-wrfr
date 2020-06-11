@@ -40,9 +40,6 @@
 	AddComponent(/datum/component/jetpack_dash)
 
 /obj/item/tank/jetpack/oxygen/combat/attack_self(mob/user)
-	if(!isturf(user.loc))
-		to_chat(user, "<span class='warning'>You cannot turn the jets on while in [user.loc].</span>")
-		return
 	if(!ishuman(user))
 		return
 	if(datum_components)
