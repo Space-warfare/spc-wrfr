@@ -94,14 +94,17 @@
 	return FALSE
 
 /datum/component/armor_protection_limb/proc/update_overlay(mob/user)
-	if(health <= 90) //this is taped together but what in this game isn't
-		usr.overlay_fullscreen("helmet", /obj/screen/fullscreen/helmet, 1)
-	if(health <= 60)
-		usr.overlay_fullscreen("helmet", /obj/screen/fullscreen/helmet, 2)
-	if(health <= 30)
-		usr.overlay_fullscreen("helmet", /obj/screen/fullscreen/helmet, 3)
-	if(health <= 5)
-		usr.overlay_fullscreen("helmet", /obj/screen/fullscreen/helmet, 4)
+	switch(health)
+		if(91 to INFINITY)
+			return
+		if(61 to 90)
+			usr.overlay_fullscreen("helmet", /obj/screen/fullscreen/helmet, 1)
+		if(31 to 60)
+			usr.overlay_fullscreen("helmet", /obj/screen/fullscreen/helmet, 2)
+		if(6 to 30)
+			usr.overlay_fullscreen("helmet", /obj/screen/fullscreen/helmet, 3)
+		if(-INFINITY to 5)
+			usr.overlay_fullscreen("helmet", /obj/screen/fullscreen/helmet, 4)
 
 
 #define VENTING (1<<1)
