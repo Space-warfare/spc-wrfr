@@ -94,8 +94,6 @@
 	return FALSE
 
 /datum/component/armor_protection_limb/proc/update_overlay(mob/user)
-	if(!user)
-		return
 	switch(health)
 		if(91 to INFINITY)
 			return
@@ -114,7 +112,8 @@
 /datum/component/armor_protection_limb/proc/adjust_health(var/amount)
 	health = CLAMP(health - amount, 0, max_health)
 	if(has_overlay)
-		update_overlay()
+		if(ismob(parent))
+			update_overlay(parent)
 	if(health <= 0)
 		if(CHECK_BITFIELD(venting, TRUE) && !CHECK_BITFIELD(venting, VENTING))
 			ENABLE_BITFIELD(venting, VENTING)
