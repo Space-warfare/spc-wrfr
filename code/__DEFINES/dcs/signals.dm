@@ -176,6 +176,7 @@
 
 #define COMSIG_CLOTHING_MECHANICS_INFO "clothing_mechanics_info"	//from base of /obj/item/clothing/get_mechanics_info()
 	#define COMPONENT_CLOTHING_MECHANICS_TINTED	(1<<0)
+#define COMSIG_TOGGLE_JETPACK_DASH "toggle_jetpack_dash"		//from the /obj/item/tank/jetpack/oxygen/combat/attack_self()
 
 // /obj/item/weapon/gun signals
 #define COMSIG_GUN_FIRE "gun_fire"
@@ -371,6 +372,10 @@
 #define COMSIG_KB_MOVEMENT_SOUTH_DOWN "keybinding_movement_south_down"
 #define COMSIG_KB_MOVEMENT_WEST_DOWN "keybinding_movement_west_down"
 #define COMSIG_KB_MOVEMENT_EAST_DOWN "keybinding_movement_east_down"
+#define COMSIG_KB_MOB_DASHNORTH_DOWN "keybinding_mob_dashnorth_down"
+#define COMSIG_KB_MOB_DASHEAST_DOWN "keybinding_mob_dasheast_down"
+#define COMSIG_KB_MOB_DASHSOUTH_DOWN "keybinding_mob_dashsouth_down"
+#define COMSIG_KB_MOB_DASHWEST_DOWN "keybinding_mob_dashwest_down"
 
 // mob keybinds
 #define COMSIG_KB_HOLD_RUN_MOVE_INTENT_UP "keybinding_hold_run_move_intent_up"
