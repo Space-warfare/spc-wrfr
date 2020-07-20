@@ -877,6 +877,6 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 	if(lying_angle || (T && T.is_light_floor())) // don't dislay shadows on light floors
 		return
 
-	underlays_standing[SHADOW_LAYER] = image("icon" = 'icons/effects/effects.dmi', "icon_state"="mob_shadow")
+	underlays_standing[SHADOW_LAYER] = image("icon" = 'icons/effects/effects.dmi', "icon_state"="mob_shadow", "pixel_y" = -3)
 	
 	apply_underlay(SHADOW_LAYER)
