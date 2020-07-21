@@ -767,7 +767,6 @@
 	icon_state = "ak40"
 	item_state = "ak40"
 	caliber = "9x30mm caseless" //codex
-	muzzleflash_iconstate = "muzzle_flash_medium"
 	max_shells = 30 //codex
 	fire_sound = 'sound/weapons/guns/fire/akfuture.ogg'
 	unload_sound = 'sound/weapons/guns/interact/ak47_unload.ogg'
