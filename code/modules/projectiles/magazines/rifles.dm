@@ -254,7 +254,7 @@
 	name = "\improper FAMAS magazine (6.5x40mm)"
 	desc = "This a FAMAS magazine, it's loaded with 6.5x40mm caseless munition designed to stop in midair to reduce space trash to comply with laws."
 	caliber = "6.5x40mm caseless"
-	icon_state = "m41a1"
+	icon_state = "famas"
 	w_class = WEIGHT_CLASS_NORMAL
 	default_ammo = /datum/ammo/bullet/rifle
 	max_rounds = 30
@@ -267,7 +267,7 @@
 	name = "\improper AK-74 magazine (9x30mm)"
 	desc = "This a AK-74 magazine, it's loaded with 9x30mm caseless munition designed to stop in midair to reduce space trash to comply with laws."
 	caliber = "9x30mm caseless"
-	icon_state = "m41a1"
+	icon_state = "akfuture"
 	w_class = WEIGHT_CLASS_NORMAL
 	default_ammo = /datum/ammo/bullet/rifle
 	max_rounds = 30
