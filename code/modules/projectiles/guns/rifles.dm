@@ -735,9 +735,9 @@
 	muzzleflash_iconstate = "muzzle_flash_medium"
 	caliber = "6.5x40mm caseless" //codex
 	max_shells = 30 //codex
-	fire_sound = 'sound/weapons/guns/fire/m16-1.ogg'
+	fire_sound = 'sound/weapons/guns/fire/famas.ogg'
 	unload_sound = 'sound/weapons/guns/interact/m16_unload.ogg'
-	reload_sound = 'sound/weapons/guns/interact/m16_reload.ogg'
+	reload_sound = 'sound/weapons/guns/interact/famas_reload.ogg'
 	cocked_sound = 'sound/weapons/guns/interact/m16_cocked.ogg'
 	current_mag = /obj/item/ammo_magazine/rifle/famas
 	aim_slowdown = 0.4
@@ -769,8 +769,8 @@
 	caliber = "9x30mm caseless" //codex
 	muzzleflash_iconstate = "muzzle_flash_medium"
 	max_shells = 30 //codex
-	fire_sound = 'sound/weapons/guns/fire/ak47-1.ogg'
+	fire_sound = 'sound/weapons/guns/fire/akfuture.ogg'
 	unload_sound = 'sound/weapons/guns/interact/ak47_unload.ogg'
-	reload_sound = 'sound/weapons/guns/interact/ak47_reload.ogg'
+	reload_sound = 'sound/weapons/guns/interact/akfuture_reload.ogg'
 	cocked_sound = 'sound/weapons/guns/interact/ak47_cocked.ogg'
 	current_mag = /obj/item/ammo_magazine/rifle/ak40vm
