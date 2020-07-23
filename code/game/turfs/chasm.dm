@@ -5,13 +5,15 @@
 	icon = 'icons/turf/chasms.dmi'
 	icon_state = "smooth"
 	density = TRUE //This will prevent hostile mobs from pathing into chasms, while the canpass override will still let it function like an open turf
+	var/collapsed = TRUE
 
-	smooth = SMOOTH_BORDER | SMOOTH_MORE
-	canSmoothWith = list(/turf/open/chasm)
+	smooth = SMOOTH_BORDER | SMOOTH_TRUE
+	canSmoothWith = list(/turf/open/chasm, /turf/open/chasm/unstable, /turf/open/chasm/unstable/chain)
 
 /turf/open/chasm/Initialize()
 	. = ..()
-	AddComponent(/datum/component/chasm, SSmapping.get_turf_below(src))
+	if(collapsed)
+		AddComponent(/datum/component/chasm, SSmapping.get_turf_below(src))
 
 	update_icon()
 	update_adjacent()
@@ -63,7 +65,8 @@
 
 /turf/open/chasm/update_icon()
 	. = ..()
-	smooth_icon(src)
+	if(smooth)
+		smooth_icon(src)
 
 /turf/open/chasm/proc/update_adjacent(atom/A)
 	for(var/V in orange(1,A)) //he would fucking hate this
@@ -84,7 +87,7 @@
 		if(AM == NULLTURF_BORDER)
 			if((T.smooth & SMOOTH_BORDER))
 				adjacencies |= 1 << direction
-		else if( (AM && !istype(AM)) || (istype(AM) && AM.anchored) )
+		else if( (AM && !istype(AM)) || (istype(AM)) )
 			adjacencies |= 1 << direction
 
 	if(adjacencies & N_NORTH)
@@ -93,14 +96,14 @@
 			if(AM == NULLTURF_BORDER)
 				if((T.smooth & SMOOTH_BORDER))
 					adjacencies |= N_NORTHWEST
-			else if( (AM && !istype(AM)) || (istype(AM) && AM.anchored) )
+			else if( (AM && !istype(AM)) || (istype(AM)) )
 				adjacencies |= N_NORTHWEST
 		if(adjacencies & N_EAST)
 			AM = find_type_in_direction(T, NORTHEAST)
 			if(AM == NULLTURF_BORDER)
 				if((T.smooth & SMOOTH_BORDER))
 					adjacencies |= N_NORTHEAST
-			else if( (AM && !istype(AM)) || (istype(AM) && AM.anchored) )
+			else if( (AM && !istype(AM)) || (istype(AM)) )
 				adjacencies |= N_NORTHEAST
 
 	if(adjacencies & N_SOUTH)
@@ -109,14 +112,14 @@
 			if(AM == NULLTURF_BORDER)
 				if((T.smooth & SMOOTH_BORDER))
 					adjacencies |= N_SOUTHWEST
-			else if( (AM && !istype(AM)) || (istype(AM) && AM.anchored) )
+			else if( (AM && !istype(AM)) || (istype(AM)) )
 				adjacencies |= N_SOUTHWEST
 		if(adjacencies & N_EAST)
 			AM = find_type_in_direction(T, SOUTHEAST)
 			if(AM == NULLTURF_BORDER)
 				if((T.smooth & SMOOTH_BORDER))
 					adjacencies |= N_SOUTHEAST
-			else if( (AM && !istype(AM)) || (istype(AM) && AM.anchored) )
+			else if( (AM && !istype(AM)) || (istype(AM)) )
 				adjacencies |= N_SOUTHEAST
 
 	return adjacencies
@@ -220,7 +223,7 @@
 				if( istype(target_turf, a_type) )
 					return target_turf
 				A = locate(a_type) in target_turf
-				if(A)
+				if(A && A.smooth)
 					return A
 			return null
 
@@ -228,11 +231,56 @@
 			if(a_type == target_turf.type)
 				return target_turf
 			A = locate(a_type) in target_turf
-			if(A && A.type == a_type)
+			if(A && A.type == a_type && A.smooth)
 				return A
 		return null
 	else
 		if(isturf(source))
 			return source.type == target_turf.type ? target_turf : null
 		var/atom/A = locate(source.type) in target_turf
-		return A && A.type == source.type ? A : null
+		if(A.smooth)
+			return A && A.type == source.type ? A : null
+
+//unstable ground
+
+/turf/open/chasm/unstable //turf tile that turns into chasm shortly after being stepped on
+	name = "unstable ground"
+	icon_state = "unstable"
+	density = FALSE
+	collapsed = FALSE
+	smooth = SMOOTH_FALSE
+	var/chaincollapse = FALSE
+
+/turf/open/chasm/unstable/chain
+	chaincollapse = TRUE
+
+/turf/open/chasm/unstable/Entered(atom/movable/A)
+	. = ..()
+	if(collapsed)
+		return
+	if(iscarbon(A))
+		shake()
+
+/turf/open/chasm/unstable/proc/shake()
+	//A.visible_message("<span class='warning'>[src] begins to shake under [A]...</span>", "<span class='warning'>[src] begins to shake under your feet!</span>")
+	flick("unstable_shake", src)
+	if(chaincollapse)
+		addtimer(CALLBACK(src, .proc/chainreact), 1.5 SECONDS)
+	addtimer(CALLBACK(src, .proc/collapse), 2 SECONDS)
+
+/turf/open/chasm/unstable/proc/collapse()
+	collapsed = TRUE
+	name = "chasm"
+	AddComponent(/datum/component/chasm, SSmapping.get_turf_below(src))
+	smooth = SMOOTH_BORDER | SMOOTH_TRUE
+	update_icon()
+	update_adjacent()
+	density = TRUE
+
+/turf/open/chasm/unstable/proc/chainreact()
+	var/turf/open/chasm/unstable/U
+	for(var/direction in GLOB.cardinals)
+		U = get_step(src, direction)
+		if(istype(U, /turf/open/chasm/unstable/chain))
+			if(U && !(U.collapsed))
+				U.shake()
