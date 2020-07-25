@@ -168,7 +168,7 @@
 	max_rounds = 40
 	gun_type = /obj/item/weapon/gun/rifle/type71
 
-
+//FUCK SHIT AVENUE
 //-------------------------------------------------------
 //SX-16 AUTOMATIC SHOTGUN (makes more sense for it to be a rifle)
 
