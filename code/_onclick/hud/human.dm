@@ -31,7 +31,7 @@
 	for(var/gear_slot in hud_data.gear)
 
 		inv_box = new /obj/screen/inventory()
-		inv_box.icon = ui_style
+		inv_box.icon = 'icons/mob/hud_32x32.dmi'
 		inv_box.color = ui_color
 		inv_box.alpha = ui_alpha
 
@@ -220,6 +220,22 @@
 	static_inventory += zone_sel
 
 	ammo = new /obj/screen/ammo()
+
+	using = new /obj/screen()
+	using.dir = SOUTH
+	using.icon = 'icons/mob/hud_32x32.dmi'
+	using.icon_state = "background"
+	using.screen_loc = "EAST+1,SOUTH to EAST+1,NORTH"
+	using.layer = UNDER_HUD_LAYER
+	infodisplay += using
+
+	using = new /obj/screen()
+	using.dir = WEST
+	using.icon = 'icons/mob/hud_32x32.dmi'
+	using.icon_state = "background"
+	using.screen_loc = "WEST,SOUTH-1 to EAST+1,SOUTH-1"
+	using.layer = UNDER_HUD_LAYER
+	infodisplay += using
 
 
 /mob/living/carbon/human/verb/toggle_hotkey_verbs()
