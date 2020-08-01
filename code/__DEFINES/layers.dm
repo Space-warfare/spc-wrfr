@@ -158,7 +158,7 @@
 
 #define FULLSCREEN_PLANE 20
 
-#define UNDER_HUD_LAYER 20.9
+#define UNDER_HUD_LAYER 20.1
 #define HUD_PLANE 21
 #define HUD_LAYER 21
 #define ABOVE_HUD_PLANE 22

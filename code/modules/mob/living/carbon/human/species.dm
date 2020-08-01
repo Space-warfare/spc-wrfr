@@ -820,12 +820,12 @@
 		"wear_ear" =     list("loc" = ui_wear_ear,  "slot" = SLOT_EARS,     "state" = "ears",   "toggle" = TRUE),
 		"head" =         list("loc" = ui_head,      "slot" = SLOT_HEAD,      "state" = "head",   "toggle" = TRUE),
 		"shoes" =        list("loc" = ui_shoes,     "slot" = SLOT_SHOES,     "state" = "shoes",  "toggle" = TRUE),
-		"suit storage" = list("loc" = ui_sstore1,   "slot" = SLOT_S_STORE,   "state" = "suit_storage"),
-		"back" =         list("loc" = ui_back,      "slot" = SLOT_BACK,      "state" = "back"),
-		"id" =           list("loc" = ui_id,        "slot" = SLOT_WEAR_ID,   "state" = "id"),
+		"suit storage" = list("loc" = ui_sstore1,   "slot" = SLOT_S_STORE,   "state" = "suit_storage", "oversized" = TRUE),
+		"back" =         list("loc" = ui_back,      "slot" = SLOT_BACK,      "state" = "back", "oversized" = TRUE),
+		"id" =           list("loc" = ui_id,        "slot" = SLOT_WEAR_ID,   "state" = "id", "toggle" = TRUE),
 		"storage1" =     list("loc" = ui_storage1,  "slot" = SLOT_L_STORE,   "state" = "pocket"),
 		"storage2" =     list("loc" = ui_storage2,  "slot" = SLOT_R_STORE,   "state" = "pocket"),
-		"belt" =         list("loc" = ui_belt,      "slot" = SLOT_BELT,      "state" = "belt")
+		"belt" =         list("loc" = ui_belt,      "slot" = SLOT_BELT,      "state" = "belt", "oversized" = TRUE)
 		)
 
 /datum/hud_data/New()

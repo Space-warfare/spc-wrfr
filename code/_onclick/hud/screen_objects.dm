@@ -127,6 +127,7 @@
 
 /obj/screen/act_intent
 	name = "intent"
+	icon = 'icons/mob/hud_32x32.dmi'
 	icon_state = "help"
 	screen_loc = ui_acti
 
@@ -307,8 +308,12 @@
 		return
 
 	var/mob/living/L = usr
+	icon_state = "act_resist_onclick"
+	addtimer(CALLBACK(src, .proc/reset_icon), 1 SECONDS)
 	L.resist()
 
+/obj/screen/resist/proc/reset_icon()
+	icon_state = "act_resist"
 
 /obj/screen/storage
 	name = "storage"
@@ -629,7 +634,12 @@
 	layer = HUD_LAYER
 
 /obj/screen/drop/Click()
+	icon_state = "act_drop_onclick"
+	addtimer(CALLBACK(src, .proc/reset_icon), 1 SECONDS)
 	usr.drop_item_v()
+
+/obj/screen/drop/proc/reset_icon()
+	icon_state = "act_drop"
 
 /obj/screen/bodytemp
 	name = "body temperature"
@@ -651,16 +661,18 @@
 
 /obj/screen/toggle_inv
 	name = "toggle"
-	icon = 'icons/mob/screen/midnight.dmi'
-	icon_state = "toggle"
+	icon = 'icons/mob/hud_32x32.dmi'
+	icon_state = "toggle_opened"
 	screen_loc = ui_inventory
 
 /obj/screen/toggle_inv/Click()
 	if(usr.hud_used.inventory_shown)
 		usr.hud_used.inventory_shown = FALSE
+		icon_state = "toggle"
 		usr.client.screen -= usr.hud_used.toggleable_inventory
 	else
 		usr.hud_used.inventory_shown = TRUE
+		icon_state = "toggle_opened"
 		usr.client.screen += usr.hud_used.toggleable_inventory
 
 	usr.hud_used.hidden_inventory_update()

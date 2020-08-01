@@ -39,6 +39,8 @@
 		inv_box.name =        gear_slot
 		inv_box.screen_loc =  slot_data["loc"]
 		inv_box.slot_id =     slot_data["slot"]
+		if(slot_data["oversized"])
+			inv_box.icon = 'icons/mob/hud_48x32.dmi'
 		inv_box.icon_state =  slot_data["state"]
 
 		if(slot_data["toggle"])
@@ -49,7 +51,7 @@
 
 	if(has_hidden_gear)
 		using = new /obj/screen/toggle_inv()
-		using.icon = ui_style
+		using.icon = 'icons/mob/hud_32x32.dmi'
 		using.color = ui_color
 		using.alpha = ui_alpha
 		static_inventory += using
@@ -76,7 +78,7 @@
 
 	if(hud_data.has_drop)
 		using = new /obj/screen/drop()
-		using.icon = ui_style
+		using.icon = 'icons/mob/hud_32x32.dmi'
 		using.color = ui_color
 		using.alpha = ui_alpha
 		hotkeybuttons += using
@@ -125,20 +127,20 @@
 
 	if(hud_data.has_resist)
 		using = new /obj/screen/resist()
-		using.icon = ui_style
+		using.icon = 'icons/mob/hud_32x32.dmi'
 		using.color = ui_color
 		using.alpha = ui_alpha
 		hotkeybuttons += using
 
 	if(hud_data.has_throw)
 		throw_icon = new /obj/screen/throw_catch()
-		throw_icon.icon = ui_style
+		throw_icon.icon = 'icons/mob/hud_32x32.dmi'
 		throw_icon.color = ui_color
 		throw_icon.alpha = ui_alpha
 		hotkeybuttons += throw_icon
 
 		pull_icon = new /obj/screen/pull()
-		pull_icon.icon = ui_style
+		pull_icon.icon = 'icons/mob/hud_32x32.dmi'
 		pull_icon.update_icon(owner)
 		hotkeybuttons += pull_icon
 
@@ -226,7 +228,8 @@
 	using.icon = 'icons/mob/hud_32x32.dmi'
 	using.icon_state = "background"
 	using.screen_loc = "EAST+1,SOUTH to EAST+1,NORTH"
-	using.layer = UNDER_HUD_LAYER
+	using.layer = FULLSCREEN_LAYER
+	using.plane = FULLSCREEN_PLANE
 	infodisplay += using
 
 	using = new /obj/screen()
