@@ -22,12 +22,12 @@
 #define ui_id "WEST,SOUTH+1"
 #define ui_belt "WEST+4:16,SOUTH-1"
 #define ui_back "WEST+6,SOUTH-1"
-#define ui_rhand "WEST+6:16,1:5"
-#define ui_lhand "WEST+7:16,1:5"
-#define ui_swaphand1 "WEST+6:16,2:5"
-#define ui_swaphand2 "WEST+7:16,2:5"
-#define ui_storage1 "WEST+8:18,1:5"
-#define ui_storage2 "WEST+9:20,1:5"
+#define ui_rhand "WEST+7:24,SOUTH-1"
+#define ui_lhand "WEST+9:8,SOUTH-1"
+#define ui_swaphand1 "WEST+7:24,SOUTH"
+#define ui_swaphand2 "WEST+9:8,SOUTH"
+#define ui_storage1 "EAST-3,SOUTH-1"
+#define ui_storage2 "EAST-2,SOUTH-1"
 
 #define ui_inv1 "WEST+5:16,1:5"			//borgs
 #define ui_inv2 "WEST+6:16,1:5"			//borgs
@@ -42,7 +42,7 @@
 #define ui_drop_throw "EAST,SOUTH"
 #define ui_acti "EAST,SOUTH-1"
 #define ui_above_movement "EAST-1,SOUTH"
-#define ui_above_intent "EAST-3:24, SOUTH+1:7"
+#define ui_above_intent "EAST+1, SOUTH+1"
 #define ui_movi "EAST-2:26,SOUTH:5"
 #define ui_zonesel "EAST+1,SOUTH-1"
 #define ui_acti_alt "EAST-1:28,1:5" //alternative intent switcher for when the interface is hidden (F12)
@@ -60,9 +60,9 @@
 #define ui_gun3 "EAST-2:26,4:7"
 #define ui_gun_select "EAST-1:28,3:7"
 
-#define ui_gun_burst 		"EAST-3:-8,1:+5"
+#define ui_gun_burst 		"EAST-1,SOUTH-1"
 #define ui_gun_railtoggle	"EAST-3:-21,1:+13"
-#define ui_gun_eject 		"EAST-3:-12,1:+5"
+#define ui_gun_eject 		"EAST-1,SOUTH-1"
 #define ui_gun_attachment 	"EAST-3:-10,1:+5"
 #define ui_gun_unique 		"EAST-3:-4,1:+2"
 
@@ -91,7 +91,7 @@
 #define UI_STAMINA "EAST-1:28,CENTER-2:13"
 #define ui_health "EAST-1:28,CENTER-1:15"
 #define ui_internal "EAST-1:28,CENTER:17"
-#define ui_ammo "EAST-1:28,CENTER+1:25"
+#define ui_ammo "EAST+1,SOUTH+7"
 
 									//borgs
 #define ui_borg_health "EAST-1:28,6:13" //borgs have the health display where humans have the bodytemp indicator.

@@ -308,12 +308,8 @@
 		return
 
 	var/mob/living/L = usr
-	icon_state = "act_resist_onclick"
-	addtimer(CALLBACK(src, .proc/reset_icon), 1 SECONDS)
 	L.resist()
-
-/obj/screen/resist/proc/reset_icon()
-	icon_state = "act_resist"
+	flick("act_resist_onclick", src)
 
 /obj/screen/storage
 	name = "storage"
@@ -568,6 +564,7 @@
 	screen_loc = ui_sl_dir
 
 /obj/screen/firearms
+	icon = 'icons/mob/hud_32x32.dmi'
 
 /obj/screen/firearms/Click()
 	return get_active_firearm(usr)
@@ -634,12 +631,8 @@
 	layer = HUD_LAYER
 
 /obj/screen/drop/Click()
-	icon_state = "act_drop_onclick"
-	addtimer(CALLBACK(src, .proc/reset_icon), 1 SECONDS)
 	usr.drop_item_v()
-
-/obj/screen/drop/proc/reset_icon()
-	icon_state = "act_drop"
+	flick("act_drop_onclick", src)
 
 /obj/screen/bodytemp
 	name = "body temperature"
@@ -680,7 +673,7 @@
 
 /obj/screen/ammo
 	name = "ammo"
-	icon = 'icons/mob/ammoHUD.dmi'
+	icon = 'icons/mob/ammo_count.dmi'
 	icon_state = "ammo"
 	screen_loc = ui_ammo
 	var/warned = FALSE
@@ -712,15 +705,15 @@
 		remove_hud(user)
 		return
 
-	var/list/ammo_type = G.get_ammo_type()
+	//var/list/ammo_type = G.get_ammo_type()
 	var/rounds = G.get_ammo_count()
 
-	var/hud_state = ammo_type[1]
-	var/hud_state_empty = ammo_type[2]
+	//var/hud_state = ammo_type[1]
+	//var/hud_state_empty = ammo_type[2]
 
 	overlays.Cut()
-
-	var/empty = image('icons/mob/ammoHUD.dmi', src, "[hud_state_empty]")
+	/*
+	var/empty = image('icons/mob/ammo_count.dmi', src, "[hud_state_empty]")
 
 	if(rounds == 0)
 		if(warned)
@@ -737,22 +730,22 @@
 				overlays += empty
 	else
 		warned = FALSE
-		overlays += image('icons/mob/ammoHUD.dmi', src, "[hud_state]")
-
+		overlays += image('icons/mob/ammo_count.dmi', src, "[hud_state]")
+	*/
 	rounds = num2text(rounds)
 
 	//Handle the amount of rounds
 	switch(length(rounds))
 		if(1)
-			overlays += image('icons/mob/ammoHUD.dmi', src, "o[rounds[1]]")
+			overlays += image('icons/mob/ammo_count.dmi', src, "o[rounds[1]]")
 		if(2)
-			overlays += image('icons/mob/ammoHUD.dmi', src, "o[rounds[2]]")
-			overlays += image('icons/mob/ammoHUD.dmi', src, "t[rounds[1]]")
+			overlays += image('icons/mob/ammo_count.dmi', src, "o[rounds[2]]")
+			overlays += image('icons/mob/ammo_count.dmi', src, "t[rounds[1]]")
 		if(3)
-			overlays += image('icons/mob/ammoHUD.dmi', src, "o[rounds[3]]")
-			overlays += image('icons/mob/ammoHUD.dmi', src, "t[rounds[2]]")
-			overlays += image('icons/mob/ammoHUD.dmi', src, "h[rounds[1]]")
+			overlays += image('icons/mob/ammo_count.dmi', src, "o[rounds[3]]")
+			overlays += image('icons/mob/ammo_count.dmi', src, "t[rounds[2]]")
+			overlays += image('icons/mob/ammo_count.dmi', src, "h[rounds[1]]")
 		else //"0" is still length 1 so this means it's over 999
-			overlays += image('icons/mob/ammoHUD.dmi', src, "o9")
-			overlays += image('icons/mob/ammoHUD.dmi', src, "t9")
-			overlays += image('icons/mob/ammoHUD.dmi', src, "h9")
+			overlays += image('icons/mob/ammo_count.dmi', src, "o9")
+			overlays += image('icons/mob/ammo_count.dmi', src, "t9")
+			overlays += image('icons/mob/ammo_count.dmi', src, "h9")

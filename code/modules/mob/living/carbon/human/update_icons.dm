@@ -566,7 +566,7 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 	remove_overlay(SUIT_STORE_LAYER)
 	if(s_store)
 		if(client && hud_used && hud_used.hud_shown)
-			s_store.screen_loc = ui_sstore1
+			s_store.screen_loc = "WEST+3:8,SOUTH-1:2"
 			client.screen += s_store
 		var/t_state = s_store.item_state
 		if(!t_state)	t_state = s_store.icon_state
@@ -620,7 +620,7 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 	remove_overlay(BELT_LAYER)
 	if(belt)
 		if(client && hud_used && hud_used.hud_shown)
-			belt.screen_loc = ui_belt
+			belt.screen_loc = "WEST+4:24,SOUTH-1:2"
 			client.screen += belt
 		var/t_state = belt.item_state
 		if(!t_state)	t_state = belt.icon_state
@@ -738,7 +738,7 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 	remove_overlay(BACK_LAYER)
 	if(back)
 		if(client && hud_used && hud_used.hud_shown)
-			back.screen_loc = ui_back
+			back.screen_loc = "WEST+6:8,SOUTH-1:2"
 			client.screen += back
 
 		var/t_state = back.item_state ? back.item_state : back.icon_state
@@ -771,7 +771,7 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 	if(r_hand)
 		if(client && hud_used && hud_used.hud_version != HUD_STYLE_NOHUD)
 			client.screen += r_hand
-			r_hand.screen_loc = ui_rhand
+			r_hand.screen_loc = "WEST+7:40,SOUTH-1"
 		var/t_state = r_hand.item_state
 		if(!t_state)	t_state = r_hand.icon_state
 
@@ -789,7 +789,7 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 	if(l_hand)
 		if(client && hud_used && hud_used.hud_version != HUD_STYLE_NOHUD)
 			client.screen += l_hand
-			l_hand.screen_loc = ui_lhand
+			l_hand.screen_loc = "WEST+9:16,SOUTH-1"
 		var/t_state = l_hand.item_state
 		if(!t_state)	t_state = l_hand.icon_state
 

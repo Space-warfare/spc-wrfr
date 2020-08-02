@@ -10,7 +10,7 @@
 	SEND_SIGNAL(usr, COMSIG_CLICK_QUICKEQUIP)
 
 
-/datum/hud/human/New(mob/living/carbon/human/owner, ui_style='icons/mob/screen/White.dmi', ui_color = "#ffffff", ui_alpha = 230)
+/datum/hud/human/New(mob/living/carbon/human/owner, ui_style='icons/mob/screen/White.dmi', ui_color = "#ffffff", ui_alpha = 255)
 	. = ..()
 	owner.overlay_fullscreen("see_through_darkness", /obj/screen/fullscreen/see_through_darkness)
 
@@ -56,6 +56,48 @@
 		using.alpha = ui_alpha
 		static_inventory += using
 
+	using = new /obj/screen()
+	using.icon = 'icons/mob/hud_32x32.dmi'
+	using.icon_state = "fluff1"
+	using.screen_loc = "WEST,SOUTH"
+	toggleable_inventory += using
+	infodisplay += using
+
+	using = new /obj/screen()
+	using.icon = 'icons/mob/hud_32x32.dmi'
+	using.icon_state = "fluff2"
+	using.screen_loc = "WEST+2,SOUTH-1"
+	toggleable_inventory += using
+	infodisplay += using
+
+	using = new /obj/screen()
+	using.icon = 'icons/mob/hud_32x64.dmi'
+	using.icon_state = "side_1"
+	using.screen_loc = "EAST+1,SOUTH+3"
+	using.layer = HUD_BACKGROUND_LAYER
+	infodisplay += using
+
+	using = new /obj/screen()
+	using.icon = 'icons/mob/hud_32x64.dmi'
+	using.icon_state = "side_2"
+	using.screen_loc = "EAST+1,SOUTH+5"
+	using.layer = HUD_BACKGROUND_LAYER
+	infodisplay += using
+
+	using = new /obj/screen()
+	using.icon = 'icons/mob/hud_32x64.dmi'
+	using.icon_state = "side_3"
+	using.screen_loc = "EAST+1,SOUTH+7"
+	using.layer = HUD_BACKGROUND_LAYER
+	infodisplay += using
+
+	using = new /obj/screen()
+	using.icon = 'icons/mob/hud_32x64.dmi'
+	using.icon_state = "side_4"
+	using.screen_loc = "EAST+1,SOUTH+9"
+	using.layer = HUD_BACKGROUND_LAYER
+	infodisplay += using
+
 	// Draw the attack intent dialogue.
 	if(hud_data.has_a_intent)
 
@@ -86,14 +128,14 @@
 	if(hud_data.has_hands)
 
 		using = new /obj/screen/human/equip
-		using.icon = ui_style
+		using.icon = 'icons/mob/hud_48x32.dmi'
 		using.plane = ABOVE_HUD_PLANE
 		using.color = ui_color
 		using.alpha = ui_alpha
 		static_inventory += using
 
 		inv_box = new /obj/screen/inventory/hand/right()
-		inv_box.icon = ui_style
+		inv_box.icon = 'icons/mob/hud_48x32.dmi'
 		if(owner && !owner.hand)	//This being 0 or null means the right hand is in use
 			inv_box.add_overlay("hand_active")
 		inv_box.slot_id = SLOT_R_HAND
@@ -104,7 +146,7 @@
 
 		inv_box = new /obj/screen/inventory/hand()
 		inv_box.setDir(EAST)
-		inv_box.icon = ui_style
+		inv_box.icon = 'icons/mob/hud_48x32.dmi'
 		if(owner?.hand)	//This being 1 means the left hand is in use
 			inv_box.add_overlay("hand_active")
 		inv_box.slot_id = SLOT_L_HAND
@@ -114,13 +156,13 @@
 		static_inventory += inv_box
 
 		using = new /obj/screen/swap_hand/human()
-		using.icon = ui_style
+		using.icon = 'icons/mob/hud_48x32.dmi'
 		using.color = ui_color
 		using.alpha = ui_alpha
 		static_inventory += using
 
 		using = new /obj/screen/swap_hand/right()
-		using.icon = ui_style
+		using.icon = 'icons/mob/hud_48x32.dmi'
 		using.color = ui_color
 		using.alpha = ui_alpha
 		static_inventory += using
@@ -155,6 +197,7 @@
 		infodisplay += oxygen_icon
 
 		toxin_icon = new /obj/screen()
+		toxin_icon.icon = 'icons/mob/hud_32x64.dmi'
 		toxin_icon.icon_state = "tox0"
 		toxin_icon.name = "toxin"
 		toxin_icon.screen_loc = ui_toxin
@@ -165,9 +208,10 @@
 
 		healths = new /obj/screen/healths()
 		infodisplay += healths
-
+		/*
 		staminas = new
 		infodisplay += staminas
+		*/
 
 	if(hud_data.has_pressure)
 		pressure_icon = new /obj/screen()
@@ -187,23 +231,26 @@
 		nutrition_icon.name = "nutrition"
 		nutrition_icon.screen_loc = ui_nutrition
 		infodisplay += nutrition_icon
-
+	/*
 	rest_icon = new /obj/screen/rest()
 	rest_icon.icon = ui_style
 	rest_icon.color = ui_color
 	rest_icon.alpha = ui_alpha
 	rest_icon.update_icon(owner)
 	static_inventory += rest_icon
+	*/
 
 	//squad leader locator
 	SL_locator = new /obj/screen/SL_locator
 	infodisplay += SL_locator
 
+	/*
 	use_attachment = new /obj/screen/firearms/attachment()
 	static_inventory += use_attachment
 
 	toggle_raillight = new /obj/screen/firearms/flashlight()
 	static_inventory += toggle_raillight
+	*/
 
 	eject_mag = new /obj/screen/firearms/magazine()
 	static_inventory += eject_mag
@@ -211,8 +258,10 @@
 	toggle_firemode = new /obj/screen/firearms/firemode()
 	static_inventory += toggle_firemode
 
+	/*
 	unique_action = new /obj/screen/firearms/unique()
 	static_inventory += unique_action
+	*/
 
 	zone_sel = new /obj/screen/zone_sel()
 	zone_sel.icon = ui_style
@@ -228,8 +277,7 @@
 	using.icon = 'icons/mob/hud_32x32.dmi'
 	using.icon_state = "background"
 	using.screen_loc = "EAST+1,SOUTH to EAST+1,NORTH"
-	using.layer = FULLSCREEN_LAYER
-	using.plane = FULLSCREEN_PLANE
+	using.layer = UNDER_HUD_LAYER
 	infodisplay += using
 
 	using = new /obj/screen()
