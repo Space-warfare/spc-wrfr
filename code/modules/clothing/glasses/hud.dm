@@ -112,3 +112,14 @@
 	toggleable = TRUE
 	hud_type = DATA_HUD_MEDICAL_PAIN
 	actions_types = list(/datum/action/item_action/toggle)
+
+/obj/item/clothing/glasses/hud/thermal/heavy
+	name = "heavy thermal goggles"
+	desc = "Thick and heavy goggles with extended range and penetrative thermal vision."
+	icon_state = "thermal_heavy"
+	item_state = "thermal_heavy"
+	deactive_state = "degoggles_thermal_heavy"
+	vision_flags = SEE_MOBS
+	toggleable = TRUE
+	hud_type = DATA_HUD_THERMAL_HEAVY
+	actions_types = list(/datum/action/item_action/toggle)

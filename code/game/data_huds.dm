@@ -508,3 +508,22 @@
 		for(var/V in GLOB.aiEyes)
 			var/mob/camera/aiEye/E = V
 			E.update_ai_detect_hud()
+
+/datum/atom_hud/thermal //incase there needs to be a 'light' less effective version
+	hud_icons = list(THERMAL_HEAVY)
+
+/datum/atom_hud/thermal/heavy
+
+/mob/proc/hud_thermal_set_overlay()
+	return
+
+/mob/living/carbon/human/hud_thermal_set_overlay()
+	var/image/holder = hud_list[THERMAL_HEAVY]
+	if(!holder)
+		return
+	holder.overlays.Cut()
+	holder.icon_state = "hudblank"
+	if(stat != DEAD)
+		holder.overlays += image('icons/mob/hud.dmi', src, "thermal_heavy")
+
+	hud_list[THERMAL_HEAVY] = holder
