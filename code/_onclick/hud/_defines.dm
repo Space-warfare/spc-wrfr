@@ -74,10 +74,10 @@
 #define ui_alert5 "EAST-1:28,CENTER+1:19"
 
 //Upper-middle right (damage indicators)
-#define ui_toxin "EAST-1:28,13:27"
-#define ui_fire "EAST-1:28,12:25"
-#define ui_oxygen "EAST-1:28,11:23"
-#define ui_pressure "EAST-1:28,10:21"
+#define ui_toxin "EAST+1,SOUTH+5"
+#define ui_fire "EAST+1,SOUTH+5"
+#define ui_oxygen "EAST+1,SOUTH+5"
+#define ui_pressure "EAST+1,SOUTH+5"
 
 #define ui_alien_toxin "EAST-1:28,13:25"
 #define ui_alien_fire "EAST-1:28,12:25"
@@ -90,7 +90,7 @@
 #define ui_healthdoll "EAST-1:28,CENTER-3:11"
 #define UI_STAMINA "EAST-1:28,CENTER-2:13"
 #define ui_health "EAST-1:28,CENTER-1:15"
-#define ui_internal "EAST-1:28,CENTER:17"
+#define ui_internal "EAST+1,SOUTH+5"
 #define ui_ammo "EAST+1,SOUTH+7"
 
 									//borgs

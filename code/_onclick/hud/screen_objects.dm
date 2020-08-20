@@ -155,6 +155,7 @@
 
 /obj/screen/internals
 	name = "toggle internals"
+	icon = 'icons/mob/hud_32x64.dmi'
 	icon_state = "internal0"
 	screen_loc = ui_internal
 
@@ -642,12 +643,14 @@
 
 /obj/screen/oxygen
 	name = "oxygen"
+	icon = 'icons/mob/hud_32x64.dmi'
 	icon_state = "oxy0"
 	screen_loc = ui_oxygen
 
 
 /obj/screen/fire
 	name = "fire"
+	icon = 'icons/mob/hud_32x64.dmi'
 	icon_state = "fire0"
 	screen_loc = ui_fire
 

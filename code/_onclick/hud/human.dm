@@ -215,6 +215,7 @@
 
 	if(hud_data.has_pressure)
 		pressure_icon = new /obj/screen()
+		pressure_icon.icon = 'icons/mob/hud_32x64.dmi'
 		pressure_icon.icon_state = "pressure0"
 		pressure_icon.name = "pressure"
 		pressure_icon.screen_loc = ui_pressure
