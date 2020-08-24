@@ -1,3 +1,9 @@
+#define KOSMNAZ "KOSMNAZ"
+#define NATSF "NATSF"
+
+#define TICKETLOSS_KILL 100
+#define TICKETLOSS_CAP 100
+
 #define KOSMNAZ_VICTORY "KOSMNAZ_VICTORY"
 #define NATSF_VICTORY "NATSF_VICTORY"
 
@@ -17,24 +23,22 @@
 
 /datum/game_mode/war/proc/kill_tickets(var/mob/living/carbon/human/H)
 	if(H.undefibbable == 1)
-		if(H.faction == "NATSF")
-			natsf_tickets -= 100
-		if(H.faction == "KOSMNAZ")
-			kosmnaz_tickets -= 100
+		if(H.faction == NATSF)
+			natsf_tickets -= TICKETLOSS_KILL
+		if(H.faction == KOSMNAZ)
+			kosmnaz_tickets -= TICKETLOSS_KILL
 	return
 
 /datum/game_mode/war/proc/cap_tickets(var/obj/machinery/capbeacon/B)
 	if(B.controlled_by == null)
 		return
-	if(B.controlled_by == "NATSF")
-		kosmnaz_tickets -= 100
-	if(B.controlled_by == "KOSMNAZ")
-		natsf_tickets -= 100
+	if(B.controlled_by == NATSF)
+		kosmnaz_tickets -= TICKETLOSS_CAP
+	if(B.controlled_by == KOSMNAZ)
+		natsf_tickets -= TICKETLOSS_CAP
 
 /datum/game_mode/war/proc/ticket_processing()
 	. = ..()
-	kill_tickets(loc()
-	cap_tickets()
 	if(natsf_tickets <= 0)
 		round_finished = KOSMNAZ_VICTORY
 		return TRUE
@@ -42,12 +46,6 @@
 		round_finished = NATSF_VICTORY
 		return TRUE
 	return FALSE
-
-
-/datum/game_mode/war/process()
-	ticket_processing()
-	if(round_finished)
-		return FALSE
 
 /datum/game_mode/war/distress/check_finished()
 	ticket_processing()
@@ -57,8 +55,6 @@
 /datum/game_mode/war/declare_completion()
 	. = ..()
 	var/F = null
-	to_chat(world, "<span class='round_header'>|Round Complete|</span>")
-	to_chat(world, "<span class='round_body'>The [F] soldiers are victorious</span>")
 	var/sound/S = null
 	switch(round_finished)
 		if(KOSMNAZ_VICTORY)
@@ -67,6 +63,9 @@
 		if(NATSF_VICTORY)
 			S = sound(pick('sound/theme/neutral_hopeful1.ogg','sound/theme/neutral_hopeful2.ogg'), channel = CHANNEL_CINEMATIC)
 			F = "NATSF"
+
+	to_chat(world, "<span class='round_header'>|Round Complete|</span>")
+	to_chat(world, "<span class='round_body'>The [F] soldiers are victorious</span>")
 
 	SEND_SOUND(world, S)
 
