@@ -25,7 +25,17 @@
 	name = "soviet space suit"
 	desc = "The red shall be ours!"
 	icon_state = "soviet_space_suit"
+	pockets = /obj/item/storage/internal/suit/space
 	sprite_sheet_id = 1
+
+/obj/item/storage/internal/suit/space
+	bypass_w_limit = list(
+		/obj/item/ammo_magazine/rifle,
+		/obj/item/ammo_magazine/smg,
+		/obj/item/ammo_magazine/sniper,
+		/obj/item/cell/lasgun
+	)
+	storage_slots = 4
 
 /obj/item/clothing/suit/space/soviet/Initialize()
 	..()
