@@ -77,11 +77,11 @@
 	else
 		icon_state = initial(icon_state)
 
+//Limb health component
+
 /obj/item/clothing/suit/space/soviet/Initialize()
 	..()
 	add_limbhealth_components(src, TRUE)
-
-//Limb health component
 
 /proc/add_limbhealth_components(var/obj/item/I, var/venting = FALSE)
 	var/coveragebits = I.flags_armor_protection
