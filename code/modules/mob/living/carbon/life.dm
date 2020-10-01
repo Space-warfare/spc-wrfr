@@ -33,15 +33,15 @@
 			if(75 to 99)
 				hud_used.healths.icon_state = "health1"
 			if(50 to 74)
-				hud_used.healths.icon_state = "health2"
+				hud_used.healths.icon_state = "health1"
 			if(25 to 49)
-				hud_used.healths.icon_state = "health3"
+				hud_used.healths.icon_state = "health2"
 			if(10 to 24)
-				hud_used.healths.icon_state = "health4"
+				hud_used.healths.icon_state = "health2"
 			if(0 to 9)
-				hud_used.healths.icon_state = "health5"
+				hud_used.healths.icon_state = "health3"
 			else
-				hud_used.healths.icon_state = "health6"
+				hud_used.healths.icon_state = "health3"
 
 
 /mob/living/carbon/update_stat()

@@ -202,8 +202,8 @@
 		if(60 to 80)
 			hud_used.healths.icon_state = "health2"
 		if(40 to 60)
-			hud_used.healths.icon_state = "health3"
+			hud_used.healths.icon_state = "health2"
 		if(20 to 40)
-			hud_used.healths.icon_state = "health4"
+			hud_used.healths.icon_state = "health3"
 		else
-			hud_used.healths.icon_state = "health5"
+			hud_used.healths.icon_state = "health3"

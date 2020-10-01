@@ -158,17 +158,17 @@
 				if(80 to 100)
 					hud_used.healths.icon_state = "health1"
 				if(60 to 80)
-					hud_used.healths.icon_state = "health2"
+					hud_used.healths.icon_state = "health1"
 				if(40 to 60)
-					hud_used.healths.icon_state = "health3"
+					hud_used.healths.icon_state = "health2"
 				if(20 to 40)
-					hud_used.healths.icon_state = "health4"
+					hud_used.healths.icon_state = "health2"
 				if(0 to 20)
-					hud_used.healths.icon_state = "health5"
+					hud_used.healths.icon_state = "health3"
 				else
-					hud_used.healths.icon_state = "health6"
+					hud_used.healths.icon_state = "crit"
 		else
-			hud_used.healths.icon_state = "health7"
+			hud_used.healths.icon_state = "dead"
 
 
 	if(stat != DEAD) //the dead get zero fullscreens

@@ -91,9 +91,9 @@
 	var/hand_tag = "l"
 
 /obj/screen/inventory/hand/update_icon(active = FALSE)
-	cut_overlays()
+	icon_state = "hand_l"
 	if(active)
-		add_overlay("hand_active")
+		icon_state = "hand_l_active"
 
 /obj/screen/inventory/hand/Click()
 	if(world.time <= usr.next_move)
@@ -110,6 +110,11 @@
 	icon_state = "hand_r"
 	screen_loc = ui_rhand
 	hand_tag = "r"
+
+/obj/screen/inventory/hand/right/update_icon(active = FALSE)
+	icon_state = "hand_r"
+	if(active)
+		icon_state = "hand_r_active"
 
 /obj/screen/close
 	name = "close"
@@ -395,7 +400,7 @@
 	vis_contents += overlay_object
 
 /obj/effect/overlay/zone_sel
-	icon = 'icons/mob/screen/zone_sel.dmi'
+	icon = 'icons/mob/hud_32x64.dmi'
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	alpha = 128
 	anchored = TRUE
@@ -404,45 +409,45 @@
 
 /obj/screen/zone_sel/proc/get_zone_at(icon_x, icon_y)
 	switch(icon_y)
-		if(1 to 3) //Feet
+		if(4 to 7) //Feet
 			switch(icon_x)
-				if(10 to 15)
+				if(7 to 12)
 					return BODY_ZONE_PRECISE_R_FOOT
-				if(17 to 22)
+				if(21 to 26)
 					return BODY_ZONE_PRECISE_L_FOOT
-		if(4 to 9) //Legs
+		if(8 to 25) //Legs
 			switch(icon_x)
-				if(10 to 15)
+				if(9 to 15)
 					return BODY_ZONE_R_LEG
-				if(17 to 22)
+				if(18 to 24)
 					return BODY_ZONE_L_LEG
-		if(10 to 13) //Hands and groin
+		if(26 to 30) //Hands and groin
 			switch(icon_x)
-				if(8 to 11)
+				if(5 to 10)
 					return BODY_ZONE_PRECISE_R_HAND
-				if(12 to 20)
+				if(11 to 22)
 					return BODY_ZONE_PRECISE_GROIN
-				if(21 to 24)
+				if(24 to 28)
 					return BODY_ZONE_PRECISE_L_HAND
-		if(14 to 22) //Chest and arms to shoulders
+		if(31 to 47) //Chest and arms to shoulders
 			switch(icon_x)
-				if(8 to 11)
+				if(5 to 10)
 					return BODY_ZONE_R_ARM
-				if(12 to 20)
+				if(11 to 22)
 					return BODY_ZONE_CHEST
-				if(21 to 24)
+				if(23 to 28)
 					return BODY_ZONE_L_ARM
-		if(23 to 30) //Head, but we need to check for eye or mouth
-			if(icon_x in 12 to 20)
+		if(48 to 58) //Head, but we need to check for eye or mouth
+			if(icon_x in 12 to 21)
 				switch(icon_y)
-					if(23 to 24)
-						if(icon_x in 15 to 17)
+					if(49 to 50)
+						if(icon_x in 16 to 17)
 							return BODY_ZONE_PRECISE_MOUTH
-					if(26) //Eyeline, eyes are on 15 and 17
-						if(icon_x in 14 to 18)
+					if(53) //Eyeline, eyes are on 15 and 17
+						if(icon_x in 15 to 18)
 							return BODY_ZONE_PRECISE_EYES
-					if(25 to 27)
-						if(icon_x in 15 to 17)
+					if(52)
+						if(icon_x in 16 to 17)
 							return BODY_ZONE_PRECISE_EYES
 				return BODY_ZONE_HEAD
 
@@ -457,7 +462,7 @@
 
 /obj/screen/zone_sel/update_icon(mob/user)
 	cut_overlays()
-	add_overlay(mutable_appearance('icons/mob/screen/zone_sel.dmi', "[z_prefix][selecting]"))
+	add_overlay(mutable_appearance('icons/mob/hud_32x64.dmi', "[z_prefix][selecting]"))
 	user.zone_selected = selecting
 
 /obj/screen/zone_sel/alien
@@ -471,7 +476,7 @@
 	name = "health"
 	icon_state = "health0"
 	screen_loc = ui_health
-	icon = 'icons/mob/screen/health.dmi'
+	icon = 'icons/mob/hud_32x64.dmi'
 
 /obj/screen/healths/alien
 	icon = 'icons/mob/screen/alien.dmi'

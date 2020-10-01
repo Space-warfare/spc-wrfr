@@ -137,7 +137,7 @@
 		inv_box = new /obj/screen/inventory/hand/right()
 		inv_box.icon = 'icons/mob/hud_48x32.dmi'
 		if(owner && !owner.hand)	//This being 0 or null means the right hand is in use
-			inv_box.add_overlay("hand_active")
+			inv_box.icon_state = "hand_r_active"
 		inv_box.slot_id = SLOT_R_HAND
 		inv_box.color = ui_color
 		inv_box.alpha = ui_alpha
@@ -148,7 +148,7 @@
 		inv_box.setDir(EAST)
 		inv_box.icon = 'icons/mob/hud_48x32.dmi'
 		if(owner?.hand)	//This being 1 means the left hand is in use
-			inv_box.add_overlay("hand_active")
+			inv_box.icon_state = "hand_l_active"
 		inv_box.slot_id = SLOT_L_HAND
 		inv_box.color = ui_color
 		inv_box.alpha = ui_alpha
@@ -265,7 +265,7 @@
 	*/
 
 	zone_sel = new /obj/screen/zone_sel()
-	zone_sel.icon = ui_style
+	zone_sel.icon = 'icons/mob/hud_32x64.dmi'
 	zone_sel.color = ui_color
 	zone_sel.alpha = ui_alpha
 	zone_sel.update_icon(owner)
