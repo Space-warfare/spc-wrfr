@@ -3,14 +3,15 @@
 	minimal_access = ALL_ANTAGONIST_ACCESS
 	skills_type = /datum/skills/crafty
 	faction = FACTION_NATSF
-
+	job_category = FACTION_NATSF
 
 //NATSF Soldier
 /datum/job/natsf/soldier
 	title = NATSF_SOLDIER
-    display_order = JOB_DISPLAY_NATSF_SOLDIER
+	display_order = JOB_DISPLAY_ORDER_NATSF_SOLDIER
 	paygrade = "FRE1"
 	outfit = /datum/outfit/job/natsf/soldier
+	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_OVERRIDELATEJOINSPAWN
 
 
 /datum/outfit/job/natsf/soldier
@@ -57,4 +58,4 @@
 
 	H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/b92fs/raffica, SLOT_IN_R_POUCH)
 
-	H.equip_to_slot_or_del(new /obj/item/weapon/combat_knife, SLOT_
+//	H.equip_to_slot_or_del(new /obj/item/weapon/combat_knife, SLOT_

@@ -47,6 +47,12 @@
 		stat("Current Map:", length(SSmapping.configs) ? SSmapping.configs[GROUND_MAP].map_name : "Loading...")
 		stat("Current Ship:", length(SSmapping.configs) ? SSmapping.configs[SHIP_MAP].map_name : "Loading...")
 
+		//I know i'm going to hell for this one//
+		var/datum/game_mode/war/W = SSticker.mode
+		if(istype(W))
+			stat("NATSF",round(W.natsf_tickets))
+			stat("KOSMNAZ",round(W.kosmnaz_tickets))
+
 	if(statpanel("Game"))
 		if(client)
 			stat("Ping:", "[round(client.lastping, 1)]ms (Average: [round(client.avgping, 1)]ms)")
@@ -101,7 +107,6 @@
 				if(length(overrides) && (A in overrides))
 					continue
 				statpanel(listed_turf.name, null, A)
-
 
 /mob/proc/prepare_huds()
 	hud_list = new
@@ -449,7 +454,7 @@
 		if(buckle.anchored)
 			return
 		return start_pulling(buckle)
-	
+
 	AM.set_glide_size(glide_size)
 
 	pulling = AM
@@ -477,7 +482,7 @@
 
 		if(pulled_mob.mob_size > MOB_SIZE_HUMAN || !(pulled_mob.status_flags & CANPUSH))
 			grab_item.icon_state = "!reinforce"
-		
+
 		set_pull_offsets(pulled_mob)
 
 	update_pull_movespeed()

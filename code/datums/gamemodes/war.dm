@@ -1,9 +1,4 @@
-#define KOSMNAZ "KOSMNAZ"
-#define NATSF "NATSF"
-
-#define TICKETLOSS_KILL 100
-#define TICKETLOSS_CAP 100
-
+#define TICKETLOSS_KILL 1
 #define KOSMNAZ_VICTORY "KOSMNAZ_VICTORY"
 #define NATSF_VICTORY "NATSF_VICTORY"
 
@@ -14,58 +9,89 @@
 	config_tag = "War"
 	required_players = 0
 	votable = TRUE
-	var/natsf_tickets = 100
-	var/kosmnaz_tickets = 100
+	var/natsf_tickets = 50
+	var/kosmnaz_tickets = 50
+	valid_job_types = list(
+		/datum/job/ussr/soldier = -1,
+		/datum/job/natsf/soldier = -1
+	)
 
 /datum/game_mode/war/announce()
 	to_chat(world, "<b>The current game mode is War!</b>")
 	to_chat(world, "<b>Assume DEFCON 1, prepare for all-out war!</b>")
 
-/datum/game_mode/war/proc/kill_tickets(var/mob/living/carbon/human/H)
-	if(H.undefibbable == 1)
-		if(H.faction == NATSF)
-			natsf_tickets -= TICKETLOSS_KILL
-		if(H.faction == KOSMNAZ)
-			kosmnaz_tickets -= TICKETLOSS_KILL
-	return
+//Capture beacon will call this upon being captured//
+/datum/game_mode/war/proc/cap_tickets(var/faction,var/tickets)
+	if(faction == FACTION_NATSF)
+		natsf_tickets += tickets
+	if(faction == FACTION_USSR)
+		kosmnaz_tickets += tickets
 
-/datum/game_mode/war/proc/cap_tickets(var/obj/machinery/capbeacon/B)
-	if(B.controlled_by == null)
-		return
-	if(B.controlled_by == NATSF)
-		kosmnaz_tickets -= TICKETLOSS_CAP
-	if(B.controlled_by == KOSMNAZ)
-		natsf_tickets -= TICKETLOSS_CAP
+//Called when mob dies//
+/datum/game_mode/war/on_mob_death(var/mob/living/M)
+//	if(M.undefibbable) This wouldn't work because the proc is called on death of the mob, in most cases it dies with being defibbable yet, from my understanding anyway
+	if(M.faction == FACTION_NATSF)
+		natsf_tickets -= TICKETLOSS_KILL
+	if(M.faction == FACTION_USSR)
+		kosmnaz_tickets -= TICKETLOSS_KILL
 
-/datum/game_mode/war/proc/ticket_processing()
+//Takes 2 seconds per process(), this is why there's * 2 in there
+//I know this is rigid as hell, but there's no pre-existing framework for this, what gives.
+/datum/game_mode/war/process()
 	. = ..()
+
+	if(global.cps.len)
+		for(var/obj/machinery/capbeacon/C in global.cps)
+			if(C.controlled_by == FACTION_USSR)
+				natsf_tickets -= C.ppm / 30
+//				kosmnaz_tickets += C.pps / 30
+			if(C.controlled_by == FACTION_NATSF)
+//				natsf_tickets += C.pps / 30
+				kosmnaz_tickets -= C.ppm / 30
+
 	if(natsf_tickets <= 0)
 		round_finished = KOSMNAZ_VICTORY
-		return TRUE
 	if(kosmnaz_tickets <= 0)
 		round_finished = NATSF_VICTORY
-		return TRUE
-	return FALSE
 
-/datum/game_mode/war/distress/check_finished()
-	ticket_processing()
+//Returns true if one faction lacks tickets//
+/datum/game_mode/war/check_finished()
 	if(round_finished)
 		return TRUE
 
 /datum/game_mode/war/declare_completion()
 	. = ..()
-	var/F = null
-	var/sound/S = null
+	var/winner
+	var/win_condition
+	var/sound/S
+
 	switch(round_finished)
 		if(KOSMNAZ_VICTORY)
-			S = sound(pick('sound/theme/neutral_hopeful1.ogg','sound/theme/neutral_hopeful2.ogg'), channel = CHANNEL_CINEMATIC)
-			F = "KOSMNAZ"
+			winner = "KOSMNAZ"
+			if(kosmnaz_tickets / initial(kosmnaz_tickets) >= 0.6)
+				win_condition = "OVERWHELMING VICTORY!"
+				S = sound(pick('sound/theme/neutral_hopeful1.ogg','sound/theme/neutral_hopeful2.ogg'), channel = CHANNEL_CINEMATIC)
+			else if(kosmnaz_tickets / initial(kosmnaz_tickets) <= 0.4)
+				win_condition = "PHYRRIC VICTORY"
+				S = sound(pick('sound/theme/neutral_hopeful1.ogg','sound/theme/neutral_hopeful2.ogg'), channel = CHANNEL_CINEMATIC)
+			else
+				win_condition = "VICTORY"
+				S = sound(pick('sound/theme/neutral_hopeful1.ogg','sound/theme/neutral_hopeful2.ogg'), channel = CHANNEL_CINEMATIC)
 		if(NATSF_VICTORY)
-			S = sound(pick('sound/theme/neutral_hopeful1.ogg','sound/theme/neutral_hopeful2.ogg'), channel = CHANNEL_CINEMATIC)
-			F = "NATSF"
+			winner = "NATSF"
+			if(natsf_tickets / initial(natsf_tickets) >= 0.6)
+				win_condition = "OVERWHELMING VICTORY!"
+				S = sound(pick('sound/theme/neutral_hopeful1.ogg','sound/theme/neutral_hopeful2.ogg'), channel = CHANNEL_CINEMATIC)
+			else if(natsf_tickets / initial(natsf_tickets) <= 0.4)
+				win_condition = "PHYRRIC VICTORY"
+				S = sound(pick('sound/theme/neutral_hopeful1.ogg','sound/theme/neutral_hopeful2.ogg'), channel = CHANNEL_CINEMATIC)
+			else
+				win_condition = "VICTORY"
+				S = sound(pick('sound/theme/neutral_hopeful1.ogg','sound/theme/neutral_hopeful2.ogg'), channel = CHANNEL_CINEMATIC)
 
 	to_chat(world, "<span class='round_header'>|Round Complete|</span>")
-	to_chat(world, "<span class='round_body'>The [F] soldiers are victorious</span>")
+	to_chat(world, "<span class='round_body'>The [winner] is victorious.</span>")
+	to_chat(world,"<span class='round_body'>[win_condition]</span>")
 
 	SEND_SOUND(world, S)
 

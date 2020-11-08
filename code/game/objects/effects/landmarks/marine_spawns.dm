@@ -6,6 +6,12 @@
 	. = ..()
 	GLOB.spawns_by_job[job] += list(loc)
 
+/obj/effect/landmark/start/job/ussr_soldier
+	job = /datum/job/ussr/soldier
+
+/obj/effect/landmark/start/job/natsf_soldier
+	job = /datum/job/natsf/soldier
+
 /obj/effect/landmark/start/job/captain
 	icon_state = "CAP"
 	job = /datum/job/terragov/command/captain

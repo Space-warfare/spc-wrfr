@@ -3,14 +3,15 @@
 	minimal_access = ALL_ANTAGONIST_ACCESS
 	skills_type = /datum/skills/crafty
 	faction = FACTION_USSR
-
+	job_category = FACTION_USSR
 
 //USSR Soldier
 /datum/job/ussr/soldier
 	title = USSR_SOLDIER
-    display_order = JOB_DISPLAY_USSR_SOLDIER
+	display_order = JOB_DISPLAY_ORDER_USSR_SOLDIER
 	paygrade = "FRE1"
 	outfit = /datum/outfit/job/ussr/soldier
+	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_OVERRIDELATEJOINSPAWN
 
 
 /datum/outfit/job/ussr/soldier
@@ -57,4 +58,4 @@
 
 	H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/b92fs/raffica, SLOT_IN_R_POUCH)
 
-	H.equip_to_slot_or_del(new /obj/item/weapon/combat_knife, SLOT_
+//	H.equip_to_slot_or_del(new /obj/item/weapon/combat_knife, SLOT_

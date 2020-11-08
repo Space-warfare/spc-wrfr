@@ -28,6 +28,9 @@
 /datum/game_mode/New()
 	initialize_emergency_calls()
 
+//This only gets called by /mob/living and it's subtypes//
+/datum/game_mode/proc/on_mob_death(var/mob/living/M)
+	return
 
 /datum/game_mode/proc/announce()
 	return TRUE

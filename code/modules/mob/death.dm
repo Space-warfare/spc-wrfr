@@ -73,5 +73,9 @@
 
 	if(SSticker.HasRoundStarted())
 		SSblackbox.ReportDeath(src)
-		
+
 	return TRUE
+
+/mob/living/death()
+	. = ..()
+	SSticker.mode.on_mob_death(src)

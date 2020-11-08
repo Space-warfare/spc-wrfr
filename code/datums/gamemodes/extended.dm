@@ -26,6 +26,7 @@
 		/datum/job/terragov/squad/specialist = 4,
 		/datum/job/terragov/squad/leader = 4,
 		/datum/job/terragov/squad/standard = -1
+
 	)
 
 /datum/game_mode/extended/announce()

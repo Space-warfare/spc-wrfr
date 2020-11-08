@@ -29,7 +29,7 @@
 #define JOB_DISPLAY_ORDER_SURVIVOR				25
 
 #define JOB_DISPLAY_ORDER_USSR_SOLDIER          26
-#define JOB_DISPLAY_ORDER_NATSF_SOLDIER          27
+#define JOB_DISPLAY_ORDER_NATSF_SOLDIER         27
 
 #define JOB_FLAG_SPECIALNAME (1<<0)
 #define JOB_FLAG_LATEJOINABLE (1<<1) //Can this job be selected for prefs to join as?
