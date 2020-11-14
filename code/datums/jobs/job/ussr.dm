@@ -27,7 +27,7 @@
 	gloves = /obj/item/clothing/gloves/marine/veteran/PMC
 	head = /obj/item/clothing/head/helmet/space/soviet
 	suit_store = /obj/item/weapon/gun/rifle/famas/ak40vm
-	l_store = /obj/item/storage/pouch/firstaid/full
+	l_store = /obj/item/storage/pouch/firstaid/coldwar
 	back = /obj/item/tank/jetpack/oxygen/combat
 
 

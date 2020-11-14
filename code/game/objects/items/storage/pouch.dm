@@ -186,6 +186,32 @@
 		/obj/item/weapon/gun/revolver)
 	draw_mode = 1
 
+//Cold war medical//
+
+/obj/item/storage/pouch/firstaid/coldwar
+	name = "KOMNAZ first-aid pouch"
+	desc = "It can contain autoinjectors."
+	icon_state = "firstaid"
+	storage_slots = 2
+	can_hold = list(/obj/item/reagent_containers/hypospray/autoinjector)
+
+/obj/item/storage/pouch/firstaid/injectors/full/Initialize()
+	. = ..()
+	new /obj/item/reagent_containers/hypospray/autoinjector/komnazstim (src)
+	new /obj/item/reagent_containers/hypospray/autoinjector/komnazstim (src)
+
+
+
+/obj/item/storage/pouch/firstaid/coldwar/natsf
+	name = "NATSF first-aid pouch"
+	desc = "It can contain autoinjectors."
+
+/obj/item/storage/pouch/firstaid/coldwar/natsf
+
+/obj/item/storage/pouch/firstaid/coldwar/natsf/Initialize()
+	. = ..()
+	new /obj/item/reagent_containers/hypospray/autoinjector/natsfstim (src)
+	new /obj/item/reagent_containers/hypospray/autoinjector/natsfstim (src)
 
 
 //// MAGAZINE POUCHES /////
