@@ -250,7 +250,7 @@
 //-------------------------------------------------------
 //FAMAS RIFLE AMMUNITION
 
-/obj/item/ammo_magazine/rifle/famas/
+/obj/item/ammo_magazine/rifle/famas
 	name = "\improper FAMAS magazine (6.5x40mm)"
 	desc = "This a FAMAS magazine, it's loaded with 6.5x40mm caseless munition designed to stop in midair to reduce space trash to comply with laws."
 	caliber = "6.5x40mm caseless"
