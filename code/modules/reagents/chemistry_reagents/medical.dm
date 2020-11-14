@@ -94,9 +94,6 @@
 
 /datum/reagent/medicine/tramadol/on_mob_life(mob/living/L)
 	L.reagent_pain_modifier += PAIN_REDUCTION_VERY_HEAVY
-	if(volume > 20)
-		L.reagent_pain_modifier += PAIN_REDUCTION_LIGHT
-		L.apply_damage(REM*0.5, TOX)
 	return ..()
 
 /datum/reagent/medicine/tramadol/overdose_process(mob/living/L, metabolism)
@@ -590,11 +587,6 @@
 
 /datum/reagent/medicine/bicaridine/on_mob_life(mob/living/L, metabolism)
 	L.heal_limb_damage(2*REM, 0)
-	if(volume > 10)
-		L.reagent_pain_modifier -= PAIN_REDUCTION_LIGHT
-	if(volume > 20)
-		L.reagent_pain_modifier -= PAIN_REDUCTION_LIGHT
-		L.heal_limb_damage(1*REM, 0)
 	return ..()
 
 
