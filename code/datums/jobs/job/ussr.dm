@@ -29,6 +29,7 @@
 	suit_store = /obj/item/weapon/gun/rifle/famas/ak40vm
 	l_store = /obj/item/storage/pouch/firstaid/coldwar
 	back = /obj/item/tank/jetpack/oxygen/combat
+	mask = /obj/item/clothing/mask/gas/soviet
 
 
 /datum/outfit/job/ussr/soldier/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)

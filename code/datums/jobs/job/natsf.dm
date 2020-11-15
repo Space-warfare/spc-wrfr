@@ -29,6 +29,7 @@
 	suit_store = /obj/item/weapon/gun/rifle/famas
 	l_store = /obj/item/storage/pouch/firstaid/coldwar/natsf
 	back = /obj/item/tank/jetpack/oxygen/combat/natsa
+	mask = /obj/item/clothing/mask/rebreather/natsf
 
 
 /datum/outfit/job/natsf/soldier/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
