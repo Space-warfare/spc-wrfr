@@ -1,9 +1,0 @@
-/obj/item/clothing/under/natsf
-	name = "NATSF suit"
-	desc = "That's a very nice suit you have there. Shame if something were to happen to it, eh?"
-	icon_state = "natsf_under"
-
-/obj/item/clothing/under/komnaz
-	name = "KOMNAZ suit"
-	desc = "That's a very nice suit you have there. Shame if something were to happen to it, eh?"
-	icon_state = "komnaz_under"
