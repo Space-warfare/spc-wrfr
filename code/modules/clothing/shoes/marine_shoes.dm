@@ -138,3 +138,15 @@
 	flags_item = NODROP|DELONDROP
 	soft_armor = list("melee" = 25, "bullet" = 20, "laser" = 20, "energy" = 20, "bomb" = 30, "bio" = 20, "rad" = 20, "fire" = 20, "acid" = 25)
 	flags_inventory = NOSLIPPING
+
+/obj/item/clothing/shoes/marine/natsf
+	name = "NATSF boots"
+	desc = "Standard issue NATSF boots for every day use or combat situations. All combat, most of the the time."
+	icon_state = "marine"
+	item_state = "natsf_boots"
+
+/obj/item/clothing/shoes/marine/kosmnaz
+	name = "KOSMNAZ combat boots"
+	desc = "Standard issue KOSMNAZ combat boots for combat scenarios or combat situations. All combat, all the time."
+	icon_state = "marine" //Placeholder, NATSF too
+	item_state = "soviet_boots"

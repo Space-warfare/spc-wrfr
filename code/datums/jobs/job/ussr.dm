@@ -24,7 +24,7 @@
 	w_uniform = /obj/item/clothing/under/marine/veteran/freelancer
 	shoes = /obj/item/clothing/shoes/marine
 	wear_suit = /obj/item/clothing/suit/space/soviet
-	gloves = /obj/item/clothing/gloves/marine/veteran/PMC
+	gloves = /obj/item/clothing/gloves/marine/veteran/PMC/soviet
 	head = /obj/item/clothing/head/helmet/space/soviet
 	suit_store = /obj/item/weapon/gun/rifle/famas/ak40vm
 	l_store = /obj/item/storage/pouch/firstaid/coldwar
