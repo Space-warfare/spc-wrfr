@@ -144,7 +144,7 @@
 	desc = "An auto-injector freshly loaded with a safe-to-use hyperzine mix."
 	amount_per_transfer_from_this = 25
 	volume = 25
-	icon_state = "autoinjector-8" 
+	icon_state = "autoinjector-8"
 	list_reagents = list(/datum/reagent/medicine/hyperzine = 5,
 						/datum/reagent/medicine/dexalin = 10,
 						/datum/reagent/medicine/inaprovaline = 10)
@@ -180,7 +180,7 @@
 	desc = "An auto-injector loaded with 3 doses of Peridaxon Plus, a chemical that heals organs while causing severe toxic damage. !DO NOT USE MORE THAN ONCE AT A TIME!"
 	amount_per_transfer_from_this = 1
 	volume = 3
-	icon_state = "autoinjector-8" 
+	icon_state = "autoinjector-8"
 	list_reagents = list(/datum/reagent/medicine/peridaxon_plus = 3)
 
 /obj/item/reagent_containers/hypospray/autoinjector/roulettium
@@ -191,16 +191,16 @@
 	icon_state = "autoinjector-6"
 	list_reagents = list(/datum/reagent/medicine/roulettium = 1)
 
-/obj/item/reagent_containers/hypospray/autoinjector/komnazcoag
-	name = "KOMNAZ blood cogulant autoinjector"
+/obj/item/reagent_containers/hypospray/autoinjector/komsnazcoag
+	name = "KOSMNAZ blood cogulant autoinjector"
 	desc = "An auto-injector loaded with a healing blood coagulent, use when bleeding or recently shot. Has soviet markings."
 	amount_per_transfer_from_this = 15
 	volume = 15
 	icon_state = "kosmnaz_coag"
 	list_reagents = list(/datum/reagent/medicine/bicaridine = 15)
 
-/obj/item/reagent_containers/hypospray/autoinjector/komnazstim
-	name = "KOMNAZ stimulant autoinjector"
+/obj/item/reagent_containers/hypospray/autoinjector/kosmnazstim
+	name = "KOSMNAZ stimulant autoinjector"
 	desc = "An auto-injector freshly loaded with a medium strength painkiller and a minor healing chemical. Has soviet markings,"
 	amount_per_transfer_from_this = 15
 	volume = 15

@@ -531,11 +531,13 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	name = "\improper alien headset"
 	keyslot = /obj/item/encryptionkey/sectoid
 
-/obj/item/radio/headset/komnaz
+// Cold war
+
+/obj/item/radio/headset/kosmnaz
 	name = "radio headset"
 	desc = "An updated, modular intercom that fits over the head. Takes encryption keys"
-	icon_state = "komnaz_headset"
-	item_state = "komnaz_headset"
+	icon_state = "kosmnaz"
+	item_state = "kosmnaz_headset"
 
 /obj/item/radio/headset/natsf
 	name = "radio headset"

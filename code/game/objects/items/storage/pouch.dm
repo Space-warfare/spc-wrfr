@@ -189,16 +189,16 @@
 //Cold war medical//
 
 /obj/item/storage/pouch/firstaid/coldwar
-	name = "KOMNAZ first-aid pouch"
+	name = "KOSMNAZ first-aid pouch"
 	desc = "It can contain autoinjectors."
 	icon_state = "firstaid"
 	storage_slots = 2
 	can_hold = list(/obj/item/reagent_containers/hypospray/autoinjector)
 
-/obj/item/storage/pouch/firstaid/injectors/full/Initialize()
+/obj/item/storage/pouch/firstaid/coldwar/full/Initialize()
 	. = ..()
-	new /obj/item/reagent_containers/hypospray/autoinjector/komnazstim (src)
-	new /obj/item/reagent_containers/hypospray/autoinjector/komnazstim (src)
+	new /obj/item/reagent_containers/hypospray/autoinjector/kosmnazstim (src)
+	new /obj/item/reagent_containers/hypospray/autoinjector/kosmnazstim (src)
 
 
 
@@ -593,7 +593,7 @@
 /obj/item/storage/pouch/shotgun/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/ammo_magazine))
 		var/obj/item/ammo_magazine/M = I
-	
+
 		if(M.flags_magazine & AMMUNITION_REFILLABLE)
 			if(!M.current_rounds)
 				to_chat(user, "<span class='warning'>[M] is empty.</span>")

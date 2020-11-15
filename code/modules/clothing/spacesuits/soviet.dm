@@ -26,6 +26,13 @@
 	desc = "The red shall be ours!"
 	icon_state = "soviet_space_suit"
 	sprite_sheet_id = 1
+	allowed = list(/obj/item/weapon/gun/,
+		/obj/item/tank/emergency_oxygen,
+		/obj/item/storage/bible,
+		/obj/item/storage/belt/sparepouch,
+		/obj/item/storage/large_holster/machete,
+		/obj/item/weapon/claymore,
+		/obj/item/storage/belt/gun)
 	var/obj/item/storage/internal/pockets = /obj/item/storage/internal/suit/coldwar
 
 //Since it isnt' a child of storage we need to define what a pocket is.
