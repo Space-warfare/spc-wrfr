@@ -272,3 +272,29 @@
 	default_ammo = /datum/ammo/bullet/rifle
 	max_rounds = 30
 	gun_type = /obj/item/weapon/gun/rifle/famas/ak40vm
+
+//-------------------------------------------------------
+//AR15C RIFLE AMMUNITION
+
+/obj/item/ammo_magazine/rifle/ar15c
+	name = "\improper AR-15C magazine (6.5x40mm)"
+	desc = "This a AR-15C magazine, it's loaded with 6.5x40mm caseless munition designed to stop in midair to reduce space trash to comply with laws."
+	caliber = "6.5x40mm caseless"
+	icon_state = "famas"
+	w_class = WEIGHT_CLASS_NORMAL
+	default_ammo = /datum/ammo/bullet/rifle
+	max_rounds = 25
+	gun_type = /obj/item/weapon/gun/rifle/groza/ar15c
+
+//-------------------------------------------------------
+//AK-44 RIFLE AMMUNITION
+
+/obj/item/ammo_magazine/rifle/groza
+	name = "\improper Groza magazine (9x30mm)"
+	desc = "This a Groza magazine, it's loaded with 9x30mm caseless munition designed to stop in midair to reduce space trash to comply with laws."
+	caliber = "9x30mm caseless"
+	icon_state = "akfuture"
+	w_class = WEIGHT_CLASS_NORMAL
+	default_ammo = /datum/ammo/bullet/rifle
+	max_rounds = 25
+	gun_type = /obj/item/weapon/gun/rifle/groza

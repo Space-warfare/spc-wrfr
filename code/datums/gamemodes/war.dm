@@ -13,7 +13,9 @@
 	var/kosmnaz_tickets = 50
 	valid_job_types = list(
 		/datum/job/ussr/soldier = -1,
-		/datum/job/natsf/soldier = -1
+		/datum/job/natsf/soldier = -1,
+		/datum/job/ussr/medic = 3,
+		/datum/job/natsf/medic = 3
 	)
 
 /datum/game_mode/war/announce()

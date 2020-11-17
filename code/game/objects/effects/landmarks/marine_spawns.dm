@@ -14,6 +14,14 @@
 	icon_state = "SOLDIER_NATSF"
 	job = /datum/job/natsf/soldier
 
+/obj/effect/landmark/start/job/ussr_soldier
+	icon_state = "MEDIC_USSR"
+	job = /datum/job/ussr/soldier
+
+/obj/effect/landmark/start/job/natsf_soldier
+	icon_state = "MEDIC_NATSF"
+	job = /datum/job/natsf/soldier
+
 /obj/effect/landmark/start/job/captain
 	icon_state = "CAP"
 	job = /datum/job/terragov/command/captain

@@ -774,3 +774,52 @@
 	reload_sound = 'sound/weapons/guns/interact/AK-SPESS_Reload.ogg'
 	cocked_sound = 'sound/weapons/guns/interact/ak47_cocked.ogg'
 	current_mag = /obj/item/ammo_magazine/rifle/ak40vm
+
+/obj/item/weapon/gun/rifle/groza
+	name = "\improper Groza carbine"
+	desc = "This Groza carbine is an update to the original design, modifed extensively to modernize it and to make it spaceworthy. Fires 9x30mm caseless.."
+	icon = 'icons/Marine/gun64.dmi'
+	icon_state = "groza"
+	item_state = "groza"
+	muzzleflash_iconstate = "muzzle_flash_medium"
+	caliber = "9x30mm caseless" //codex
+	max_shells = 25 //codex
+	fire_sound = 'sound/weapons/guns/fire/AK-SPESS_Firing.ogg'
+	dry_fire_sound = 'sound/weapons/guns/interact/FAMAS_Click.ogg'
+	unload_sound = 'sound/weapons/guns/interact/ak47_unload.ogg'
+	reload_sound = 'sound/weapons/guns/interact/AK-SPESS_Reload.ogg'
+	cocked_sound = 'sound/weapons/guns/interact/ak47_cocked.ogg'
+	current_mag = /obj/item/ammo_magazine/rifle/groza
+	aim_slowdown = 0.4
+	attachable_allowed = list(
+						/obj/item/attachable/scope,
+						/obj/item/attachable/scope/mini)
+
+	flags_gun_features = GUN_AUTO_EJECTOR|GUN_CAN_POINTBLANK|GUN_LOAD_INTO_CHAMBER|GUN_AMMO_COUNTER
+	gun_firemode_list = list(GUN_FIREMODE_SEMIAUTO, GUN_FIREMODE_BURSTFIRE, GUN_FIREMODE_AUTOBURST, GUN_FIREMODE_AUTOMATIC)
+	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 17,"rail_x" = 4, "rail_y" = 18, "under_x" = 22, "under_y" = 15, "stock_x" = 19, "stock_y" = 13)
+
+	fire_delay = 0.2 SECONDS
+	burst_amount = 0
+	accuracy_mult_unwielded = 0.5
+	accuracy_mult = 1.2
+	scatter = -20
+	scatter_unwielded = 80
+	damage_mult = 0.9
+
+//spess ar-15
+
+/obj/item/weapon/gun/rifle/groza/ar15c
+	name = "\improper AR-15C carbine"
+	desc = "This AR-15 carbine is an update to the original design, modifed extensively to modernize it and to make it spaceworthy. Uses 6.5x40mm caseless."
+	icon_state = "ar15"
+	item_state = "ar15"
+	muzzleflash_iconstate = "muzzle_flash_medium"
+	caliber = "6.5x40mm caseless" //codex
+	max_shells = 25 //codex
+	current_mag = /obj/item/ammo_magazine/rifle/ar15c
+	fire_sound = 'sound/weapons/guns/fire/FAMAS_Firing.ogg'
+	dry_fire_sound = 'sound/weapons/guns/interact/FAMAS_Click.ogg'
+	unload_sound = 'sound/weapons/guns/interact/m16_unload.ogg'
+	reload_sound = 'sound/weapons/guns/interact/FAMAS_Reload.ogg'
+	cocked_sound = 'sound/weapons/guns/interact/m16_cocked.ogg'

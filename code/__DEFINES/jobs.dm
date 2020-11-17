@@ -30,6 +30,8 @@
 
 #define JOB_DISPLAY_ORDER_USSR_SOLDIER          26
 #define JOB_DISPLAY_ORDER_NATSF_SOLDIER         27
+#define JOB_DISPLAY_ORDER_USSR_MEDIC          28
+#define JOB_DISPLAY_ORDER_NATSF_MEDIC         29
 
 #define JOB_FLAG_SPECIALNAME (1<<0)
 #define JOB_FLAG_LATEJOINABLE (1<<1) //Can this job be selected for prefs to join as?
@@ -70,6 +72,8 @@
 
 #define USSR_SOLDIER "USSR Soldier"
 #define NATSF_SOLDIER "NATSF Soldier"
+#define USSR_MEDIC "USSR Medic"
+#define NATSF_MEDIC "NATSF Medic"
 
 #define JOB_CAT_COMMAND "Command"
 #define JOB_CAT_SILICON "Silicon"

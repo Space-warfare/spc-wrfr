@@ -192,3 +192,16 @@
 		L.internal.pressure = max(L.internal.pressure - (LEAKRATE_BASE/100*vent_amount), 0)
 
 #undef VENTING
+
+//medic/sl
+/obj/item/clothing/head/helmet/space/soviet/light
+	name = "soviet light space helmet"
+	desc = "Through this, red flags just look like flags!"
+	icon_state = "soviet_light_helmet"
+	sprite_sheet_id = 1
+
+
+/obj/item/clothing/suit/space/soviet/light
+	name = "soviet light space suit"
+	desc = "The red shall be ours!"
+	icon_state = "soviet_light_suit"
