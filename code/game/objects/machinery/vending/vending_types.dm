@@ -432,7 +432,16 @@
 	icon_state = "med"
 	icon_deny = "med-deny"
 	//product_ads = "Go save some lives!;The best stuff for your medbay.;Only the finest tools.;Natural chemicals!;This stuff saves lives.;Don't you want some?;Ping!"
-	req_access = list(ACCESS_MARINE_MEDBAY, ACCESS_MARINE_CHEMISTRY) //only doctors and researchers can access these
-	products = list(/obj/item/healthanalyzer = 5,
-					/obj/item/clothing/glasses/hud/health = 2,
+	products = list(/obj/item/ammo_magazine/rifle/ak40vm = 50,
+					/obj/item/ammo_magazine/rifle/groza = 50,
+					)
+
+/obj/machinery/vending/natsf_supplydrop
+	name = "NATSF Supply drop"
+	desc = "A soviet supply drop filled with spare ammo."
+	icon_state = "med"
+	icon_deny = "med-deny"
+	//product_ads = "Go save some lives!;The best stuff for your medbay.;Only the finest tools.;Natural chemicals!;This stuff saves lives.;Don't you want some?;Ping!"
+	products = list(/obj/item/ammo_magazine/rifle/famas = 50,
+					/obj/item/ammo_magazine/rifle/ar15c = 50,
 					)
