@@ -425,3 +425,14 @@
 		R.product_name = initial(temp_path.name)
 
 		i++
+
+/obj/machinery/vending/soviet_supplydrop
+	name = "KOSMNAZ Supply drop"
+	desc = "A soviet supply drop filled with spare ammo."
+	icon_state = "med"
+	icon_deny = "med-deny"
+	//product_ads = "Go save some lives!;The best stuff for your medbay.;Only the finest tools.;Natural chemicals!;This stuff saves lives.;Don't you want some?;Ping!"
+	req_access = list(ACCESS_MARINE_MEDBAY, ACCESS_MARINE_CHEMISTRY) //only doctors and researchers can access these
+	products = list(/obj/item/healthanalyzer = 5,
+					/obj/item/clothing/glasses/hud/health = 2,
+					)
