@@ -1,0 +1,6 @@
+{
+    "map_name": "Mars",
+    "map_path": "map_files/Murray_spc_wrfr",
+    "map_file": "Cold-War-Mars-1.dmm",
+    "traits": [{"Mars": true}]
+}

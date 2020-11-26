@@ -25,6 +25,7 @@ require only minor tweaks.
 #define ZTRAIT_RESERVED "Transit/Reserved"
 #define ZTRAIT_GROUND "Ground"
 #define ZTRAIT_MARINE_MAIN_SHIP "Marine Main Ship"
+#define ZTRAIT_MARS "Mars"
 
 // number - bombcap is multiplied by this before being applied to bombs
 #define ZTRAIT_BOMBCAP_MULTIPLIER "Bombcap Multiplier"
@@ -95,6 +96,7 @@ require only minor tweaks.
 
 // traity things
 #define MAP_COLD "COLD"
+#define MAP_
 
 #define MAP_ARMOR_STYLE_DEFAULT "default"
 #define MAP_ARMOR_STYLE_ICE "ice"

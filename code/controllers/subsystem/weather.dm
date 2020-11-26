@@ -15,7 +15,7 @@ SUBSYSTEM_DEF(weather)
 
 /datum/controller/subsystem/weather/fire()
 	// process active weather
-	for(var/datum/wather/W in processing)
+	for(var/datum/weather/W in processing)
 		if(W.aesthetic || W.stage != MAIN_STAGE)
 			continue
 		for(var/i in GLOB.mob_living_list)
@@ -70,10 +70,12 @@ SUBSYSTEM_DEF(weather)
 	next_hit_by_zlevel["[z]"] = null
 
 /datum/controller/subsystem/weather/proc/get_weather(z, area/active_area)
-    var/datum/weather/A
-    for(var/V in processing)
-        var/datum/weather/W = V
-        if((z in W.impacted_z_levels) && W.area_type == active_area.type)
-            A = W
-            break
-    return A
+	var/datum/weather/A
+	for(var/V in processing)
+		var/datum/weather/W = V
+		if((z in W.impacted_z_levels) && W.area_type == active_area.type)
+			A = W
+			break
+	return A
+
+/proc/debug_spawn_weather(mob/user)

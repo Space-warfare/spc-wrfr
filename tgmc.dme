@@ -11,7 +11,6 @@
 // END_PREFERENCES
 // BEGIN_INCLUDE
 #include "_maps\_basemap.dm"
-#include "_maps\map_files\generic\Admin_Level.dmm"
 #include "code\_compile_options.dm"
 #include "code\world.dm"
 #include "code\__DEFINES\__game.dm"
@@ -1003,6 +1002,7 @@
 #include "code\modules\clothing\suits\storage.dm"
 #include "code\modules\clothing\suits\utility.dm"
 #include "code\modules\clothing\suits\wiz_robe.dm"
+#include "code\modules\clothing\under\coldwar.dm"
 #include "code\modules\clothing\under\color.dm"
 #include "code\modules\clothing\under\gimmick.dm"
 #include "code\modules\clothing\under\marine_uniform.dm"
