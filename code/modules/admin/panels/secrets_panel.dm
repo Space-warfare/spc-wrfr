@@ -18,6 +18,7 @@
 		<a href='?src=[ref];secrets=powereverything'>Power ALL SMESs and APCs everywhere</a><br>
 		<a href='?src=[ref];secrets=blackout'>Break all lights</a><br>
 		<a href='?src=[ref];secrets=whiteout'>Fix all lights</a><br>
+		<a href='?src=[ref];secrets=weather'>Trigger some weather</a><br>
 		<br>
 		<b>Mass-Teleportation</b><br>
 		<br>

@@ -3,14 +3,15 @@
 	desc = "The terraforming of mars has made the famous sandstorms much more dangerous."
 
 	telegraph_duration = 40 SECONDS
-	telegraph_message = "<span class='highdanger'>The storm is coming. Seek shelter!<span>"
+	telegraph_message = "<span class='highdanger'>A storm is coming. Seek shelter!<span>"
 	telegraph_overlay = "dust_low"
 
-	weather_message = "<span class='highdanger'><i>The wind bellows around you as shrapnels of sand cuts through the landscape.</i></span>"
+	weather_message = "<span class='highdanger'><i>The wind bellows around you as shrapnels of sand cut through the landscape.</i></span>"
 	weather_overlay = "dust_high"
 	weather_duration_lower = 1 MINUTES
 	weather_duration_upper = 3 MINUTES
 
+	probability = 10
 	target_trait = ZTRAIT_MARS
 	end_duration = 10 SECONDS
 	end_message = "<span class='boldannounce'>The wind is dying down. It should be safe outside now.</span>"

@@ -12,33 +12,37 @@ Format:
 	disabled (disables the map)
 endmap
 
-map murray
-	default
-endmap
+#map murray
+#	default
+#endmap
 	
-map lv624
-endmap
+#map lv624
+#endmap
 
-map bigred_v2
-endmap
+#map bigred_v2
+#endmap
 
-map ice_colony_v2
-endmap
+#map ice_colony_v2
+#endmap
 
-map prison_station_fop
-endmap
+#map prison_station_fop
+#endmap
 
-map tyson_station
-endmap
+#map tyson_station
+#endmap
 
-map vapor_processing
-endmap
+#map vapor_processing
+#endmap
 
-map icy_caves
-endmap
+#map icy_caves
+#endmap
 
-map desert
-endmap
+#map desert
+#endmap
 
-map research_outpost
+#map research_outpost
+#endmap
+
+map Mars
+	default
 endmap
