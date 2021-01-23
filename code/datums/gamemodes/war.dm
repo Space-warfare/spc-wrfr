@@ -72,24 +72,24 @@
 			winner = "KOSMNAZ"
 			if(kosmnaz_tickets / initial(kosmnaz_tickets) >= 0.6)
 				win_condition = "OVERWHELMING VICTORY!"
-				S = sound(pick('sound/theme/neutral_hopeful1.ogg','sound/theme/neutral_hopeful2.ogg'), channel = CHANNEL_CINEMATIC)
+				S = sound(pick('sound/music/victory_3.ogg'), channel = CHANNEL_CINEMATIC)
 			else if(kosmnaz_tickets / initial(kosmnaz_tickets) <= 0.4)
 				win_condition = "PHYRRIC VICTORY"
-				S = sound(pick('sound/theme/neutral_hopeful1.ogg','sound/theme/neutral_hopeful2.ogg'), channel = CHANNEL_CINEMATIC)
+				S = sound(pick('sound/music/victory_1.ogg'), channel = CHANNEL_CINEMATIC)
 			else
 				win_condition = "VICTORY"
-				S = sound(pick('sound/theme/neutral_hopeful1.ogg','sound/theme/neutral_hopeful2.ogg'), channel = CHANNEL_CINEMATIC)
+				S = sound(pick('sound/music/victory_2.ogg','sound/theme/neutral_hopeful2.ogg'), channel = CHANNEL_CINEMATIC)
 		if(NATSF_VICTORY)
 			winner = "NATSF"
 			if(natsf_tickets / initial(natsf_tickets) >= 0.6)
 				win_condition = "OVERWHELMING VICTORY!"
-				S = sound(pick('sound/theme/neutral_hopeful1.ogg','sound/theme/neutral_hopeful2.ogg'), channel = CHANNEL_CINEMATIC)
+				S = sound(pick('sound/music/victory_3.ogg'), channel = CHANNEL_CINEMATIC)
 			else if(natsf_tickets / initial(natsf_tickets) <= 0.4)
 				win_condition = "PHYRRIC VICTORY"
-				S = sound(pick('sound/theme/neutral_hopeful1.ogg','sound/theme/neutral_hopeful2.ogg'), channel = CHANNEL_CINEMATIC)
+				S = sound(pick('sound/music/victory_1.ogg'), channel = CHANNEL_CINEMATIC)
 			else
 				win_condition = "VICTORY"
-				S = sound(pick('sound/theme/neutral_hopeful1.ogg','sound/theme/neutral_hopeful2.ogg'), channel = CHANNEL_CINEMATIC)
+				S = sound(pick('sound/music/victory_2.ogg'), channel = CHANNEL_CINEMATIC)
 
 	to_chat(world, "<span class='round_header'>|Round Complete|</span>")
 	to_chat(world, "<span class='round_body'>The [winner] is victorious.</span>")
