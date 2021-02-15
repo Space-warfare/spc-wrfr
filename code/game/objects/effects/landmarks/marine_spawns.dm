@@ -14,13 +14,13 @@
 	icon_state = "SOLDIER_NATSF"
 	job = /datum/job/natsf/soldier
 
-/obj/effect/landmark/start/job/ussr_soldier
+/obj/effect/landmark/start/job/ussr_medic
 	icon_state = "MEDIC_USSR"
-	job = /datum/job/ussr/soldier
+	job = /datum/job/ussr/medic
 
-/obj/effect/landmark/start/job/natsf_soldier
+/obj/effect/landmark/start/job/natsf_medic
 	icon_state = "MEDIC_NATSF"
-	job = /datum/job/natsf/soldier
+	job = /datum/job/natsf/medic
 
 /obj/effect/landmark/start/job/captain
 	icon_state = "CAP"
