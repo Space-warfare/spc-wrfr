@@ -46,6 +46,7 @@ SUBSYSTEM_DEF(weather)
 	return ..()
 
 /datum/controller/subsystem/weather/proc/run_weather(datum/weather/weather_datum_type, z_levels)
+	to_chat(world, "weather launched: [weather_datum_type] [z_levels]")
 	if(istext(weather_datum_type))
 		for(var/V in subtypesof(/datum/weather))
 			var/datum/weather/W = V
@@ -56,7 +57,7 @@ SUBSYSTEM_DEF(weather)
 		CRASH("run_weather called with invalid weather_datum_type: [weather_datum_type || "null"]")
 
 	if(isnull(z_levels))
-		z_levels = SSmapping.levels_by_trait(weather_datum_type.target_trait)
+		z_levels = SSmapping.levels_by_trait(initial(weather_datum_type.target_trait))
 	else if(isnum(z_levels))
 		z_levels = list(z_levels)
 	else if(!islist(z_levels))
@@ -78,4 +79,41 @@ SUBSYSTEM_DEF(weather)
 			break
 	return A
 
-/proc/debug_spawn_weather(mob/user)
+/datum/controller/subsystem/weather/proc/debug_spawn_weather(mob/user)
+	/*
+	Let user pick from active z level
+	Show all weather types
+	organize them as
+		"choice [Possible on given map]" = choice
+		e.g would be
+		"sandstorm [Possible]" = /datum/weather/sandstorm
+		"meteor shower [Not possible]" = /datum/weather/meteorshower
+	Let the user pick the weather
+	Launch weather on that Z level
+	*/
+	var/dat = "<b>Weather</b><br>"
+	var/ref = "[REF(src)];[HrefToken()]"
+	for(var/V in subtypesof(/datum/weather))
+		var/datum/weather/W = V
+		var/probability = initial(W.probability)
+		var/target_trait = initial(W.target_trait)
+		dat += "<a href='?src=[ref];weather=[V]'>[initial(W.name)] (prob:[probability]. target_trait:[target_trait])</a><br>"
+
+
+	var/datum/browser/browser = new(user, "modepanel", "<div align='center'>Weather Panel</div>", 600, 500)
+	browser.set_content(dat)
+	browser.open()
+
+
+/datum/controller/subsystem/weather/Topic(href, href_list)
+	to_chat(world, "weather topic called. href_list:[english_list(href_list)]")
+
+	if(!check_rights(R_ADMIN, FALSE))
+		to_chat(world, "right check failed")
+		return
+
+	if(href_list["weather"])
+		to_chat(world, "weather href given:[href_list["weather"]]")
+		var/path = text2path(href_list["weather"])
+		if(ispath(path, /datum/weather))
+			run_weather(path)

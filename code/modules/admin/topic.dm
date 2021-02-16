@@ -214,7 +214,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 			if("weather")
 				log_admin("[key_name(usr)] is accessing the weather spawning system.")
 				message_admins("[ADMIN_TPMONTY(usr)] is accessing the weather spawning system.")
-				debug_spawn_weather(usr)
+				SSweather.debug_spawn_weather(usr)
 
 
 	else if(href_list["kick"])
