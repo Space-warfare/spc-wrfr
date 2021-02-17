@@ -13,6 +13,8 @@
 
 	probability = 10
 	target_trait = ZTRAIT_MARS
+	area_type = /area/bigredv2
+	protect_indoors = TRUE
 	end_duration = 10 SECONDS
 	end_message = "<span class='boldannounce'>The wind is dying down. It should be safe outside now.</span>"
 	end_overlay = "dust_med"

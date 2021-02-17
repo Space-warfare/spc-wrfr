@@ -94,9 +94,10 @@
 	var/list/affectareas = get_areas(area_type)
 	for(var/V in protected_areas)
 		affectareas -= get_areas(V)
-	for(var/V in affectareas)
-		var/area/A = V
+	for(var/area/A in affectareas)
 		if(A.z in impacted_z_levels)
+			if(protect_indoors && A.ceiling)
+				continue
 			impacted_areas |= A
 	weather_duration = rand(weather_duration_lower, weather_duration_upper)
 	START_PROCESSING(SSweather, src)
